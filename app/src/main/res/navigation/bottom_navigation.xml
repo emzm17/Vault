@@ -36,5 +36,14 @@
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/passwordGenerator"
+        android:name="com.example.vault.fragment.PasswordGenerator"
+        android:label="PasswordGenerator" />
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.vault.fragment.Settings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>

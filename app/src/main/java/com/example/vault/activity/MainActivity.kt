@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.vault.R
@@ -18,12 +19,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        appBarConfiguration= AppBarConfiguration(setOf(R.id.loginFragment,R.id.cardFragment))
+        appBarConfiguration= AppBarConfiguration(setOf(R.id.loginFragment,R.id.cardFragment),draw_layout)
         setSupportActionBar(toolbar)
         navController=findNavController(R.id.container_fragment)
         bottomNavigationView=findViewById(R.id.bottom_navigation_view)
         setupActionBarWithNavController(navController,appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
+        nav_view.setupWithNavController(navController)
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+       return navController.navigateUp(appBarConfiguration) || return super.onSupportNavigateUp()
     }
 }

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:rowCount="6"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#EA9922">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_baseline_desktop_windows" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_below="@id/header">
+
+        <TextView
+            android:id="@+id/loginCategorydisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Login Name"
+            android:text="Social"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/loginEmailIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="122dp"
+            android:src="@drawable/user" />
+
+        <ImageView
+            android:id="@+id/copyEmail"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="122dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_baseline_content_copy" />
+
+        <TextView
+            android:id="@+id/loginEmaildisplay"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toStartOf="@id/copyEmail"
+            android:layout_toEndOf="@id/loginEmailIcon"
+            android:gravity="center_vertical" />
+
+        <ImageView
+            android:id="@+id/loginPasswordIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="182dp"
+            android:src="@drawable/password1" />
+
+        <ImageView
+            android:id="@+id/copyPassword"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="182dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_baseline_content_copy" />
+
+        <TextView
+            android:id="@+id/loginPassworddisplay"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="170dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_toStartOf="@id/copyPassword"
+            android:layout_toEndOf="@id/loginPasswordIcon"
+            android:gravity="center_vertical" />
+
+        <ImageView
+            android:id="@+id/loginWebsiteIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="247dp"
+            android:src="@drawable/www" />
+
+        <ImageView
+            android:id="@+id/goToWebsite"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="247dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_baseline_content_copy" />
+
+        <TextView
+            android:id="@+id/loginWebsitedisplay"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="230dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_toStartOf="@id/goToWebsite"
+            android:layout_toEndOf="@id/loginWebsiteIcon"
+            android:gravity="center_vertical" />
+
+
+    </RelativeLayout>
+</RelativeLayout>

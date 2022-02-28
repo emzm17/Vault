@@ -4,4 +4,23 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login">Login</string>
     <string name="card">Card</string>
+    <string name="add_login_details">add_login_details</string>
+    <string name="generate_password">generate_password</string>
+    <string name="website">Website</string>
+    <string name="email_or_username">email_or_username</string>
+    <string name="category">category</string>
+    <string name="card_number">card_number</string>
+    <string name="card_holder">card_holder</string>
+    <string name="expiry_date">expiry_date</string>
+    <string name="cvv">cvv</string>
+    <string name="password_generator">Password Generator</string>
+    <string name="your_secure_password_appears_here">Your secure password appears here</string>
+    <string name="settings">Settings</string>
+    <string name="generate">Generate</string>
+    <string name="copy">Copy</string>
+    <string name="r">!@#$%^*</string>
+    <string name="_0_9">0-9</string>
+    <string name="a_z">a-z</string>
+    <string name="A_Z">A-Z</string>
+    <string name="save">Save</string>
 </resources>

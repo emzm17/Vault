@@ -7,12 +7,34 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.vault.fragment.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        android:label="LoginDetails"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_addLoginFragment"
+            app:destination="@id/addLoginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/cardFragment"
         android:name="com.example.vault.fragment.CardFragment"
-        android:label="fragment_card"
+        android:label="CardDetails"
         tools:layout="@layout/fragment_card" />
+    <fragment
+        android:id="@+id/addLoginFragment"
+        android:name="com.example.vault.fragment.AddLoginFragment"
+        android:label="SaveLoginDetails" >
+        <action
+            android:id="@+id/action_addLoginFragment_to_loginFragment2"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

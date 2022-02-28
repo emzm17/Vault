@@ -14,14 +14,14 @@
         android:layout_height="wrap_content"/>
 
     <fragment
-        android:layout_below="@id/toolbar"
+        android:id="@+id/container_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:id="@+id/container_fragment"
-        android:layout_above="@id/bottom_navigation_view"
         android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation_view"
+        android:layout_below="@id/toolbar"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/bottom_navigation"/>
+        app:navGraph="@navigation/bottom_navigation" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"

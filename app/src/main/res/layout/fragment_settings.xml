@@ -1,14 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".fragment.Settings">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <EditText
+        android:id="@+id/oldpin"
+        android:layout_width="300dp"
+        android:inputType="number"
+        android:maxLength="4"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/old_pin" />
 
-</FrameLayout>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/newpin"
+        android:hint="@string/new_pin"
+        android:layout_below="@id/oldpin"
+        android:layout_width="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="45dp"
+        android:inputType="textWebPassword"
+        android:layout_height="wrap_content"/>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/confirmpin"
+        android:hint="@string/confirm_pin"
+        android:layout_below="@id/newpin"
+        android:layout_width="300dp"
+        android:maxLength="4"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="45dp"
+        android:inputType="textWebPassword"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/changepin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/confirmpin"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center_horizontal"
+        android:text="@string/change_pin" />
+
+</RelativeLayout>

@@ -23,7 +23,7 @@ import com.example.vault.viewmodel.DetailsViewModelFactory
 import com.example.vault.utils.Dialog
 import kotlinx.android.synthetic.main.fragment_login.*
 
-class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener {
+class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter.OnItemEditClickListener{
     private lateinit var vm: DetailsViewModel
     private lateinit var adapter: LoginAdapter
     private lateinit var rp: Repository
@@ -41,21 +41,22 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener {
         loginDatabase = LoginDatabase.getDatabase(requireContext())
         rp = Repository(cardDatabase, loginDatabase)
         vm = ViewModelProvider(this, DetailsViewModelFactory(rp)).get(DetailsViewModel::class.java)
-        adapter = LoginAdapter(requireContext(),this,)
+        adapter = LoginAdapter(requireContext(),this,this)
         login_rcview.layoutManager = LinearLayoutManager(requireContext())
         login_rcview.adapter = adapter
 
-        vm.alllogin().observe(viewLifecycleOwner, {   l ->
+        vm.alllogin().observe(viewLifecycleOwner) { l ->
             l?.let {
                 adapter.update(it)
 
             }
             list.addAll(l)
-        })
+        }
         val itemTouchHelper=object : ItemTouchHelper.SimpleCallback(
             0,
             ItemTouchHelper.RIGHT
-        ){
+        )
+           {
             override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
@@ -97,6 +98,12 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener {
         val d=Dialog(list[position])
         d.show(requireActivity().supportFragmentManager,"dialog")
     }
+
+    override fun OnEditItemClick(position: Int) {
+        val action=LoginFragmentDirections.actionLoginFragmentToUpdateLogin(list[position])
+        findNavController().navigate(action)
+    }
+
 
 
 

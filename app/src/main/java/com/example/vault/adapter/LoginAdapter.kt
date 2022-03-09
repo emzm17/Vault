@@ -5,12 +5,17 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation.findNavController
+
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vault.R
+import com.example.vault.fragment.LoginFragment
+import com.example.vault.fragment.LoginFragmentDirections
 import com.example.vault.model.Login
 import kotlinx.android.synthetic.main.login_list.view.*
 
-class LoginAdapter(private val context: Context, private val listener:OnItemClickListener)
+class LoginAdapter(private val context: Context, private val listener:OnItemClickListener,private val editlistener:OnItemEditClickListener)
     : RecyclerView.Adapter<LoginAdapter.LoginViewHolder>() {
 
     private var data = ArrayList<Login>()
@@ -23,6 +28,11 @@ class LoginAdapter(private val context: Context, private val listener:OnItemClic
 
     override fun onBindViewHolder(holder: LoginViewHolder, position: Int) {
         holder.bind(data[position])
+        holder.itemView.edit_login.setOnClickListener{
+            editlistener.OnEditItemClick(position)
+        }
+
+
 
 
     }
@@ -47,8 +57,14 @@ class LoginAdapter(private val context: Context, private val listener:OnItemClic
         fun bind(item: Login) = with(itemView) {
             itemTitle.text = item.loginwebsite
             itemid.text = item.loginId
+            val i=getItem(item.category)
+            when(i){
+                "Educational"->itemIcon.setImageResource(R.drawable.educational)
+                "Medcial"->itemIcon.setImageResource(R.drawable.medical)
+                "Financial"->itemIcon.setImageResource(R.drawable.financial)
+                "Social"->itemIcon.setImageResource(R.drawable.social)
+            }
         }
-
         override fun onClick(p0: View?) {
             if (adapterPosition != RecyclerView.NO_POSITION) {
                 listener.OnItemClick(adapterPosition)
@@ -61,8 +77,20 @@ class LoginAdapter(private val context: Context, private val listener:OnItemClic
         fun OnItemClick(position: Int)
     }
 
+  interface OnItemEditClickListener{
+      fun OnEditItemClick(position: Int)
+  }
 
 }
+private fun getItem(s:String):String {
+    val a=arrayListOf("Educational", "Financial", "Medcial", "Social")
+    for (i in a){
+         if(i==s)return s
+    }
+
+    return "random"
+}
+
 
 
 

@@ -31,4 +31,8 @@ class Repository(private val cardDatabase: CardDatabase, private val loginDataba
         return loginDatabase.loginDao().getAllLogin()
     }
 
+    suspend fun updatelogin(login: Login){
+       loginDatabase.loginDao().updateLogin(login)
+    }
+
 }

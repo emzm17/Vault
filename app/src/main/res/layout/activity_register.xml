@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent" android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/vault1"
+                android:layout_marginTop="50dp"
+                android:id="@+id/appIcon"
+                android:contentDescription="@string/todo" />
+
+            <TextView
+                android:id="@+id/rdemoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/appIcon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:text="Create Your Pin"
+                android:textSize="20sp" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:columnCount="4"
+                android:layout_marginTop="100dp"
+                android:layout_marginRight="100dp"
+                android:id="@+id/pinLayout"
+                android:layout_marginLeft="100dp"
+                android:layout_below="@+id/appIcon"
+                android:rowCount="1">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_columnWeight="1"
+                    android:src="@drawable/password_not_entered"
+                    android:id="@+id/rpasswordFirst"
+                    android:contentDescription="@string/todo" />
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_columnWeight="1"
+                    android:src="@drawable/password_not_entered"
+                    android:id="@+id/rpasswordSecond"
+                    android:contentDescription="@string/todo" />
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_columnWeight="1"
+                    android:src="@drawable/password_not_entered"
+                    android:id="@+id/rpasswordThird"
+                    android:contentDescription="@string/todo" />
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_columnWeight="1"
+                    android:src="@drawable/password_not_entered"
+                    android:id="@+id/rpasswordFourth"
+                    android:contentDescription="@string/todo" />
+            </GridLayout>
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:columnCount="3"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="0dp"
+                android:layout_below="@id/pinLayout"
+                android:rowCount="4"
+                android:id="@+id/passwordGridLayout"
+                android:layout_alignParentBottom="true">
+
+                <TextView
+                    android:id="@+id/rnumber1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/_1"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:textSize="26sp"
+                    android:id="@+id/rnumber2"
+                    android:textStyle="bold"
+                    android:layout_rowWeight="1"
+                    android:text="@string/_2"
+                    android:focusable="true" />
+                <TextView
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:layout_rowWeight="1"
+                    android:id="@+id/rnumber3"
+                    android:text="@string/_3"
+                    android:focusable="true" />
+                <TextView
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:layout_rowWeight="1"
+                    android:id="@+id/rnumber4"
+                    android:text="@string/_4"
+                    android:focusable="true" />
+
+                <TextView
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text="@string/_5"
+                    android:textSize="26sp"
+                    android:id="@+id/rnumber5"
+                    android:layout_rowWeight="1"
+                    android:textStyle="bold"
+                    android:focusable="true" />
+
+                <TextView
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:id="@+id/rnumber6"
+                    android:gravity="center"
+                    android:text="@string/_6"
+                    android:textSize="26sp"
+                    android:layout_rowWeight="1"
+                    android:textStyle="bold"
+                    android:focusable="true" />
+
+                <TextView
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:id="@+id/rnumber7"
+                    android:text="@string/_7"
+                    android:textSize="26sp"
+                    android:layout_rowWeight="1"
+                    android:textStyle="bold"
+                    android:focusable="true" />
+
+                <TextView
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text="@string/_8"
+                    android:textSize="26sp"
+                    android:id="@+id/rnumber8"
+                    android:layout_rowWeight="1"
+                    android:textStyle="bold"
+                    android:focusable="true" />
+
+                <TextView
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text="@string/_9"
+                    android:textSize="26sp"
+                    android:layout_rowWeight="1"
+                    android:id="@+id/rnumber9"
+                    android:textStyle="bold"
+                    android:focusable="true" />
+
+                <TextView
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text="@string/x"
+                    android:textSize="26sp"
+                    android:id="@+id/rnumberDelete"
+                    android:layout_rowWeight="1"
+                    android:textStyle="bold"
+                    android:focusable="true" />
+
+                <TextView
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text="@string/_0"
+                    android:textSize="26sp"
+                    android:layout_rowWeight="1"
+                    android:id="@+id/rnumber0"
+                    android:textStyle="bold"
+                    android:focusable="true" />
+
+                <TextView
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:gravity="center"
+                    android:text="Go"
+                    android:textSize="26sp"
+                    android:id="@+id/rnext"
+                    android:layout_rowWeight="1"
+                    android:textStyle="bold"
+                    android:focusable="true" />
+            </GridLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

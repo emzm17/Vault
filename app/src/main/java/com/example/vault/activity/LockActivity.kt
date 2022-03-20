@@ -32,7 +32,7 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 count++
                 password += p0.text
                 if(count==4){
-                    passwordFourth.setImageResource(R.drawable.password_entered)
+                    passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
 
                     if(password==masterPassword) {
                         startActivity(Intent(this, MainActivity::class.java))
@@ -48,10 +48,10 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 }
                 else{
                     when(count){
-                        1 -> passwordFirst.setImageResource(R.drawable.password_entered)
-                        2 -> passwordSecond.setImageResource(R.drawable.password_entered)
-                        3 -> passwordThird.setImageResource(R.drawable.password_entered)
-                        4 -> passwordFourth.setImageResource(R.drawable.password_entered)
+                        1 -> passwordFirst.setImageResource(R.drawable.ic_baseline_star_24)
+                        2 -> passwordSecond.setImageResource(R.drawable.ic_baseline_star_24)
+                        3 ->passwordThird.setImageResource(R.drawable.ic_baseline_star_24)
+                        4 -> passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     }
                 }
             }
@@ -60,7 +60,7 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 count++
                 password += p0.text
                 if(count==4){
-                    passwordFourth.setImageResource(R.drawable.password_entered)
+                    passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     if(password==masterPassword){
                         startActivity(Intent(this,MainActivity::class.java))
                         finish()
@@ -75,10 +75,10 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 }
                 else{
                     when(count){
-                        1 -> passwordFirst.setImageResource(R.drawable.password_entered)
-                        2 -> passwordSecond.setImageResource(R.drawable.password_entered)
-                        3 -> passwordThird.setImageResource(R.drawable.password_entered)
-                        4 -> passwordFourth.setImageResource(R.drawable.password_entered)
+                        1 -> passwordFirst.setImageResource(R.drawable.ic_baseline_star_24)
+                        2 -> passwordSecond.setImageResource(R.drawable.ic_baseline_star_24)
+                        3 ->passwordThird.setImageResource(R.drawable.ic_baseline_star_24)
+                        4 -> passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     }
                 }
             }
@@ -87,14 +87,14 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 count++
                 password += p0.text
                 if(count==4){
-                    passwordFourth.setImageResource(R.drawable.password_entered)
+                    passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     if(password==masterPassword){
                         startActivity(Intent(this,MainActivity::class.java))
                         finish()
                     }
                     else{
                         Toast.makeText(this,"Wrong Pin Try Again",Toast.LENGTH_LONG).show()
-                        count=0;
+                        count=0
                         uncheckPasswordView()
                         demoText.text="Re-Enter Pin"
                         password=""
@@ -102,10 +102,10 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 }
                 else{
                     when(count){
-                        1 -> passwordFirst.setImageResource(R.drawable.password_entered)
-                        2 -> passwordSecond.setImageResource(R.drawable.password_entered)
-                        3 -> passwordThird.setImageResource(R.drawable.password_entered)
-                        4 -> passwordFourth.setImageResource(R.drawable.password_entered)
+                        1 -> passwordFirst.setImageResource(R.drawable.ic_baseline_star_24)
+                        2 -> passwordSecond.setImageResource(R.drawable.ic_baseline_star_24)
+                        3 ->passwordThird.setImageResource(R.drawable.ic_baseline_star_24)
+                        4 -> passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     }
                 }
             }
@@ -115,14 +115,14 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 count++
                 password += p0.text
                 if(count==4){
-                    passwordFourth.setImageResource(R.drawable.password_entered)
+                    passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     if(password==masterPassword){
                         startActivity(Intent(this,MainActivity::class.java))
                         finish()
                     }
                     else{
                         Toast.makeText(this,"Wrong Pin Try Again",Toast.LENGTH_LONG).show()
-                        count=0;
+                        count=0
                         uncheckPasswordView()
                         demoText.text="Re-Enter Pin"
                         password=""
@@ -130,10 +130,10 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 }
                 else{
                     when(count){
-                        1 -> passwordFirst.setImageResource(R.drawable.password_entered)
-                        2 -> passwordSecond.setImageResource(R.drawable.password_entered)
-                        3 -> passwordThird.setImageResource(R.drawable.password_entered)
-                        4 -> passwordFourth.setImageResource(R.drawable.password_entered)
+                        1 -> passwordFirst.setImageResource(R.drawable.ic_baseline_star_24)
+                        2 -> passwordSecond.setImageResource(R.drawable.ic_baseline_star_24)
+                        3 ->passwordThird.setImageResource(R.drawable.ic_baseline_star_24)
+                        4 -> passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     }
                 }
             }
@@ -143,7 +143,7 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 count++
                 password += p0.text
                 if(count==4){
-                    passwordFourth.setImageResource(R.drawable.password_entered)
+                    passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     if(password==masterPassword){
                         startActivity(Intent(this,MainActivity::class.java))
                         finish()
@@ -158,10 +158,10 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 }
                 else{
                     when(count){
-                        1 -> passwordFirst.setImageResource(R.drawable.password_entered)
-                        2 -> passwordSecond.setImageResource(R.drawable.password_entered)
-                        3 -> passwordThird.setImageResource(R.drawable.password_entered)
-                        4 -> passwordFourth.setImageResource(R.drawable.password_entered)
+                        1 -> passwordFirst.setImageResource(R.drawable.ic_baseline_star_24)
+                        2 -> passwordSecond.setImageResource(R.drawable.ic_baseline_star_24)
+                        3 ->passwordThird.setImageResource(R.drawable.ic_baseline_star_24)
+                        4 -> passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     }
                 }
             }
@@ -171,7 +171,7 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 count++
                 password += p0.text
                 if(count==4){
-                    passwordFourth.setImageResource(R.drawable.password_entered)
+                    passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     if(password==masterPassword){
                         startActivity(Intent(this,MainActivity::class.java))
                         finish()
@@ -186,10 +186,10 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 }
                 else{
                     when(count){
-                        1 -> passwordFirst.setImageResource(R.drawable.password_entered)
-                        2 -> passwordSecond.setImageResource(R.drawable.password_entered)
-                        3 -> passwordThird.setImageResource(R.drawable.password_entered)
-                        4 -> passwordFourth.setImageResource(R.drawable.password_entered)
+                        1 -> passwordFirst.setImageResource(R.drawable.ic_baseline_star_24)
+                        2 -> passwordSecond.setImageResource(R.drawable.ic_baseline_star_24)
+                        3 ->passwordThird.setImageResource(R.drawable.ic_baseline_star_24)
+                        4 -> passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     }
                 }
             }
@@ -199,7 +199,7 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 count++
                 password += p0.text
                 if(count==4){
-                    passwordFourth.setImageResource(R.drawable.password_entered)
+                    passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     if(password==masterPassword){
                         startActivity(Intent(this,MainActivity::class.java))
                         finish()
@@ -214,10 +214,10 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 }
                 else{
                     when(count){
-                        1 -> passwordFirst.setImageResource(R.drawable.password_entered)
-                        2 -> passwordSecond.setImageResource(R.drawable.password_entered)
-                        3 -> passwordThird.setImageResource(R.drawable.password_entered)
-                        4 -> passwordFourth.setImageResource(R.drawable.password_entered)
+                        1 -> passwordFirst.setImageResource(R.drawable.ic_baseline_star_24)
+                        2 -> passwordSecond.setImageResource(R.drawable.ic_baseline_star_24)
+                        3 ->passwordThird.setImageResource(R.drawable.ic_baseline_star_24)
+                        4 -> passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     }
                 }
             }
@@ -227,7 +227,7 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 count++
                 password += p0.text
                 if(count==4){
-                    passwordFourth.setImageResource(R.drawable.password_entered)
+                    passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     if(password==masterPassword){
                         startActivity(Intent(this,MainActivity::class.java))
                         finish()
@@ -242,10 +242,10 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 }
                 else{
                     when(count){
-                        1 -> passwordFirst.setImageResource(R.drawable.password_entered)
-                        2 -> passwordSecond.setImageResource(R.drawable.password_entered)
-                        3 -> passwordThird.setImageResource(R.drawable.password_entered)
-                        4 -> passwordFourth.setImageResource(R.drawable.password_entered)
+                        1 -> passwordFirst.setImageResource(R.drawable.ic_baseline_star_24)
+                        2 -> passwordSecond.setImageResource(R.drawable.ic_baseline_star_24)
+                        3 ->passwordThird.setImageResource(R.drawable.ic_baseline_star_24)
+                        4 -> passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     }
                 }
             }
@@ -254,7 +254,7 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 count++
                 password += p0.text
                 if(count==4){
-                    passwordFourth.setImageResource(R.drawable.password_entered)
+                    passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     if(password==masterPassword){
                         startActivity(Intent(this,MainActivity::class.java))
                         finish()
@@ -269,10 +269,10 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 }
                 else{
                     when(count){
-                        1 -> passwordFirst.setImageResource(R.drawable.password_entered)
-                        2 -> passwordSecond.setImageResource(R.drawable.password_entered)
-                        3 -> passwordThird.setImageResource(R.drawable.password_entered)
-                        4 -> passwordFourth.setImageResource(R.drawable.password_entered)
+                        1 -> passwordFirst.setImageResource(R.drawable.ic_baseline_star_24)
+                        2 -> passwordSecond.setImageResource(R.drawable.ic_baseline_star_24)
+                        3 ->passwordThird.setImageResource(R.drawable.ic_baseline_star_24)
+                        4 -> passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     }
                 }
             }
@@ -282,7 +282,7 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 count++
                 password += p0.text
                 if(count==4){
-                    passwordFourth.setImageResource(R.drawable.password_entered)
+                    passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     if(password==masterPassword){
                         startActivity(Intent(this,MainActivity::class.java))
                         finish()
@@ -297,10 +297,10 @@ class LockActivity : AppCompatActivity() ,View.OnClickListener{
                 }
                 else{
                     when(count){
-                        1 -> passwordFirst.setImageResource(R.drawable.password_entered)
-                        2 -> passwordSecond.setImageResource(R.drawable.password_entered)
-                        3 -> passwordThird.setImageResource(R.drawable.password_entered)
-                        4 -> passwordFourth.setImageResource(R.drawable.password_entered)
+                        1 -> passwordFirst.setImageResource(R.drawable.ic_baseline_star_24)
+                        2 -> passwordSecond.setImageResource(R.drawable.ic_baseline_star_24)
+                        3 ->passwordThird.setImageResource(R.drawable.ic_baseline_star_24)
+                        4 -> passwordFourth.setImageResource(R.drawable.ic_baseline_star_24)
                     }
                 }
             }

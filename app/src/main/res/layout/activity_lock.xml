@@ -66,17 +66,18 @@
                     android:id="@+id/passwordFourth"
                     android:contentDescription="@string/todo" />
             </GridLayout>
+
             <GridLayout
+                android:id="@+id/passwordGridLayout"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:columnCount="3"
+                android:layout_below="@id/pinLayout"
+                android:layout_alignParentBottom="true"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="0dp"
-                android:layout_below="@id/pinLayout"
-                android:rowCount="4"
-                android:id="@+id/passwordGridLayout"
-                android:layout_alignParentBottom="true">
+                android:columnCount="3"
+                android:rowCount="4">
 
                 <TextView
                     android:id="@+id/number1"
@@ -94,146 +95,143 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:clickable="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:gravity="center"
-                    android:textSize="26sp"
                     android:id="@+id/number2"
-                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
                     android:text="@string/_2"
-                    android:focusable="true" />
-                <TextView
-                    android:clickable="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:gravity="center"
                     android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:layout_rowWeight="1"
-                    android:id="@+id/number3"
-                    android:text="@string/_3"
-                    android:focusable="true" />
-                <TextView
-                    android:clickable="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:layout_rowWeight="1"
-                    android:id="@+id/number4"
-                    android:text="@string/_4"
-                    android:focusable="true" />
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:clickable="true"
+                    android:id="@+id/number3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/_3"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/number4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/_4"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/number5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center"
                     android:text="@string/_5"
                     android:textSize="26sp"
-                    android:id="@+id/number5"
-                    android:layout_rowWeight="1"
-                    android:textStyle="bold"
-                    android:focusable="true" />
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:clickable="true"
+                    android:id="@+id/number6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:id="@+id/number6"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center"
                     android:text="@string/_6"
                     android:textSize="26sp"
-                    android:layout_rowWeight="1"
-                    android:textStyle="bold"
-                    android:focusable="true" />
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:clickable="true"
+                    android:id="@+id/number7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center"
-                    android:id="@+id/number7"
                     android:text="@string/_7"
                     android:textSize="26sp"
-                    android:layout_rowWeight="1"
-                    android:textStyle="bold"
-                    android:focusable="true" />
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:clickable="true"
+                    android:id="@+id/number8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center"
                     android:text="@string/_8"
                     android:textSize="26sp"
-                    android:id="@+id/number8"
-                    android:layout_rowWeight="1"
-                    android:textStyle="bold"
-                    android:focusable="true" />
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:clickable="true"
+                    android:id="@+id/number9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center"
                     android:text="@string/_9"
                     android:textSize="26sp"
-                    android:layout_rowWeight="1"
-                    android:id="@+id/number9"
-                    android:textStyle="bold"
-                    android:focusable="true" />
+                    android:textStyle="bold" />
+
 
                 <TextView
-                    android:clickable="true"
+                    android:id="@+id/number0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/_0"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/numberDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center"
                     android:text="@string/x"
                     android:textSize="26sp"
-                    android:id="@+id/numberDelete"
-                    android:layout_rowWeight="1"
-                    android:textStyle="bold"
-                    android:focusable="true" />
+                    android:textStyle="bold" />
 
-                <TextView
-                    android:clickable="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:gravity="center"
-                    android:text="@string/_0"
-                    android:textSize="26sp"
-                    android:layout_rowWeight="1"
-                    android:id="@+id/number0"
-                    android:textStyle="bold"
-                    android:focusable="true" />
 
-                <TextView
-                    android:clickable="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:gravity="center"
-                    android:text="@string/_0"
-                    android:textSize="26sp"
-                    android:id="@+id/next"
-                    android:layout_rowWeight="1"
-                    android:textStyle="bold"
-                    android:focusable="true" />
+
+
             </GridLayout>
+
         </RelativeLayout>
+
     </androidx.core.widget.NestedScrollView>
+
+
 </LinearLayout>

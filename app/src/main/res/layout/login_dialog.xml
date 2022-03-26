@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:rowCount="6"
     android:layout_width="match_parent" android:layout_height="wrap_content">
 
@@ -108,7 +109,8 @@
             android:layout_marginBottom="15dp"
             android:layout_toStartOf="@id/copyPassword"
             android:layout_toEndOf="@id/loginPasswordIcon"
-            android:gravity="center_vertical" />
+            android:gravity="center_vertical"
+            tools:ignore="TextViewEdits" />
 
         <ImageView
             android:id="@+id/loginwebiteiconID"

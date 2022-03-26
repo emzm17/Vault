@@ -1,14 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.AddCardFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+    android:layout_height="match_parent">
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:textSize="24sp"
+        android:text="@string/issuer"/>
 
-</FrameLayout>
+    <Spinner
+        android:id="@+id/cardSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp" />
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/cardIcon"
+        android:src="@drawable/ic_pay"
+        />
+
+    <EditText
+        android:id="@+id/cardNumberEt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@id/cardIcon"
+        android:hint="@string/card_number1"
+        android:inputType="number" />
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/cardHolderIcon"
+        android:src="@drawable/user"
+        android:contentDescription="@string/todo" />
+
+    <EditText
+        android:id="@+id/cardHolderEt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@id/cardIcon"
+        android:hint="@string/card_holder1" />
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/cardExpiryIcon"
+        android:src="@drawable/ic_calendar"
+        />
+
+    <EditText
+        android:id="@+id/cardExpiryEt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@id/cardIcon"
+        android:hint="@string/expiry_date1" />
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="285dp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/cardCvvIcon"
+        android:src="@drawable/ic_cvv"
+        />
+
+    <EditText
+        android:id="@+id/cardCvvEt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@id/cardIcon"
+        android:hint="@string/cvv1"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/addDebitCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardCvvEt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+
+        android:padding="5dp"
+        android:text="@string/add_card1"
+        android:textColor="#fff" />
+</RelativeLayout>

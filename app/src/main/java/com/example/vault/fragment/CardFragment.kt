@@ -1,35 +1,35 @@
 package com.example.vault.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.vault.R
+import com.example.vault.adapter.CardAdapter
+import com.example.vault.database.CardDatabase
+import com.example.vault.database.LoginDatabase
+import com.example.vault.model.Card
+import com.example.vault.repository.Repository
+import com.example.vault.viewmodel.DetailsViewModel
+import com.example.vault.viewmodel.DetailsViewModelFactory
+import kotlinx.android.synthetic.main.fragment_card.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CardFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class CardFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class CardFragment : Fragment(){
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var vm: DetailsViewModel
+    private lateinit var rp: Repository
+    private lateinit var cardDatabase: CardDatabase
+    private lateinit var loginDatabase: LoginDatabase
+    private  var list= arrayListOf<Card>()
+    private lateinit var  adapter:CardAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,23 +38,65 @@ class CardFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_card, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CardFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CardFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        cardDatabase = CardDatabase.getDatabase(requireContext())
+        loginDatabase = LoginDatabase.getDatabase(requireContext())
+        rp = Repository(cardDatabase, loginDatabase)
+        vm = ViewModelProvider(this, DetailsViewModelFactory(rp)).get(DetailsViewModel::class.java)
+        list=ArrayList()
+        adapter= CardAdapter(requireContext(),list)
+        card_rcview.layoutManager=LinearLayoutManager(requireContext())
+        card_rcview.adapter=adapter
+
+        vm.allCard().observe(viewLifecycleOwner) { c ->
+                if(!c.isNullOrEmpty()){
+                   list.clear()
+                    list.addAll(c)
+                    adapter.notifyDataSetChanged()
                 }
+            else{
+                list.clear()
+                adapter.notifyDataSetChanged()
+                }
+        }
+        val itemTouchHelper=object : ItemTouchHelper.SimpleCallback(
+            0,
+            ItemTouchHelper.RIGHT
+        )
+        {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
             }
+
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position=viewHolder.adapterPosition
+                when(direction){
+                    ItemTouchHelper.RIGHT->{
+                      vm.deletecard(adapter.getItemId(position))
+                    }
+                }
+
+            }
+        }
+        ItemTouchHelper(itemTouchHelper).apply {
+            attachToRecyclerView(card_rcview)
+        }
+        CardAdd.setOnClickListener {
+          val action=CardFragmentDirections.actionCardFragmentToAddCardFragment()
+            findNavController().navigate(action)
+        }
     }
+
+
+
+
 }
+
+

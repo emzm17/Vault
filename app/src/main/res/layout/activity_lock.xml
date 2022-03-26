@@ -227,7 +227,7 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:gravity="center"
-                    android:text="@string/_0"
+                    android:text="0"
                     android:textSize="26sp"
                     android:id="@+id/next"
                     android:layout_rowWeight="1"

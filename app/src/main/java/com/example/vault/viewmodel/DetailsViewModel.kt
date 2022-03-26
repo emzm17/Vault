@@ -1,6 +1,7 @@
 package com.example.vault.viewmodel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.vault.model.Card
@@ -13,8 +14,7 @@ import kotlinx.coroutines.launch
 
 class DetailsViewModel(private val repository: Repository): ViewModel() {
 
-    private var cardlist: LiveData<List<Card>> = repository.getAllCardDetails()
-    private var loginlist: LiveData<List<Login>> = repository.getAllLoginDetails()
+
 
     fun insertcard(card: Card){
         viewModelScope.launch(Dispatchers.IO) {
@@ -26,22 +26,18 @@ class DetailsViewModel(private val repository: Repository): ViewModel() {
             repository.insertlogin(login)
         }
     }
-    fun deletelogin(login: Login){
+    fun deletelogin(uid:Long){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deletelogin(login)
+            repository.deletelogin(uid)
         }
     }
-    fun deletecard(card: Card){
+    fun deletecard(uid:Long){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deletecard(card)
+            repository.deletecard(uid)
         }
     }
-    fun allcard(): LiveData<List<Card>> {
-        return cardlist
-    }
-    fun alllogin(): LiveData<List<Login>> {
-        return loginlist
-    }
+   fun allCard()=repository.getAllCardDetails()
+   fun allLogin()=repository.getAllLoginDetails()
 
 
     fun updatelogin(login:Login){

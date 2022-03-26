@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.ListFragment
 import androidx.navigation.fragment.findNavController
 import com.example.vault.R
@@ -41,21 +42,25 @@ class Dialog(private var login: Login) : BottomSheetDialogFragment() {
                 requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val clip = ClipData.newPlainText("Copy", textcopy)
             clipboardManager.setPrimaryClip(clip)
+            Toast.makeText(requireContext(),"Copied",Toast.LENGTH_SHORT).show()
         }
 
         copyPassword.setOnClickListener {
-            val textcopy = loginEmaildisplay.text
+            val textcopy = loginPassworddisplay.text
             val clipboardManager =
                 requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val clip = ClipData.newPlainText("Copy", textcopy)
             clipboardManager.setPrimaryClip(clip)
+            Toast.makeText(requireContext(),"Copied",Toast.LENGTH_SHORT).show()
         }
         gotowebsite.setOnClickListener {
-            val temp="http://www.${loginWebsitedisplayname.text}.com"
+               val temp="http://www.${loginWebsitedisplayname.text}.com"
                val i= Intent(Intent.ACTION_VIEW)
                i.setData(Uri.parse(temp))
                startActivity(i)
+               
         }
+
 
 
     }

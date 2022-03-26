@@ -11,21 +11,19 @@ class Repository(private val cardDatabase: CardDatabase, private val loginDataba
     suspend fun insertcard(card: Card){
         cardDatabase.cardDao().insertCard(card)
     }
-    suspend fun deletecard(card: Card){
-        cardDatabase.cardDao().deleteCard(card)
+    suspend fun deletecard(uid:Long){
+        cardDatabase.cardDao().deleteCard(uid)
     }
 
 
     suspend fun insertlogin(login: Login){
         loginDatabase.loginDao().insertLogin(login)
     }
-    suspend fun deletelogin(login: Login){
-        loginDatabase.loginDao().deleteLogin(login)
+    suspend fun deletelogin(uid: Long){
+        loginDatabase.loginDao().deleteLogin(uid)
     }
 
-    fun getAllCardDetails(): LiveData<List<Card>> {
-        return cardDatabase.cardDao().getAllcard()
-    }
+   fun getAllCardDetails()=cardDatabase.cardDao().getAllcard()
 
     fun getAllLoginDetails(): LiveData<List<Login>> {
         return loginDatabase.loginDao().getAllLogin()

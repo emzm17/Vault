@@ -5,14 +5,13 @@ import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "card_table")
-data class Card (
-
+data class Card(
     var cardHolder:String,
-    var cardType:String,
     var cardNumber:String,
     var cardExpiryMonth:String,
     var cardExpiryYear:String,
-    var cardCvvNo:String,
+    var cardCvv:String,
+    var cardType:String,
     @PrimaryKey(autoGenerate = true)
     var id:Long=0
 )

@@ -3,10 +3,9 @@ package com.example.vault.fragment
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -34,23 +33,31 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setHasOptionsMenu(true)
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+
         cardDatabase = CardDatabase.getDatabase(requireContext())
         loginDatabase = LoginDatabase.getDatabase(requireContext())
         rp = Repository(cardDatabase, loginDatabase)
         vm = ViewModelProvider(this, DetailsViewModelFactory(rp)).get(DetailsViewModel::class.java)
-        adapter = LoginAdapter(requireContext(),this,this)
+        adapter = LoginAdapter(requireContext(),list,this,this)
         login_rcview.layoutManager = LinearLayoutManager(requireContext())
         login_rcview.adapter = adapter
 
-        vm.alllogin().observe(viewLifecycleOwner) { l ->
-            l?.let {
-                adapter.update(it)
-
-            }
-            list.addAll(l)
+        vm.allLogin().observe(viewLifecycleOwner) { l ->
+             if(!l.isNullOrEmpty()){
+                 list.clear()
+                 list.addAll(l)
+                 adapter.notifyDataSetChanged()
+             }
+             else{
+                 list.clear()
+                 adapter.notifyDataSetChanged()
+             }
         }
         val itemTouchHelper=object : ItemTouchHelper.SimpleCallback(
             0,
@@ -69,9 +76,7 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 when(direction){
                     ItemTouchHelper.RIGHT->{
-                        vm.deletelogin(list[viewHolder.adapterPosition])
-                        adapter.update(list)
-
+                        vm.deletelogin(adapter.getItemId(viewHolder.absoluteAdapterPosition))
                     }
                 }
 
@@ -90,9 +95,6 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
 
 
     }
-
-
-
 
     override fun OnItemClick(position: Int) {
         val d=Dialog(list[position])

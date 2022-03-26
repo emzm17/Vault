@@ -10,8 +10,8 @@ interface LoginDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertLogin(login: Login)
 
-    @Delete
-    suspend fun deleteLogin(login: Login)
+    @Query("Delete from login_table where id=:uid")
+    suspend fun deleteLogin(uid:Long)
 
     @Update
     suspend fun updateLogin(login: Login)

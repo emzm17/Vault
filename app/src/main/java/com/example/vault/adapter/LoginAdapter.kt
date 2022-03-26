@@ -15,10 +15,10 @@ import com.example.vault.fragment.LoginFragmentDirections
 import com.example.vault.model.Login
 import kotlinx.android.synthetic.main.login_list.view.*
 
-class LoginAdapter(private val context: Context, private val listener:OnItemClickListener,private val editlistener:OnItemEditClickListener)
+class LoginAdapter(private val context: Context, private var data:List<Login>,private val listener:OnItemClickListener,private val editlistener:OnItemEditClickListener)
     : RecyclerView.Adapter<LoginAdapter.LoginViewHolder>() {
 
-    private var data = ArrayList<Login>()
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LoginViewHolder {
         val v = LayoutInflater.from(context).inflate(R.layout.login_list, parent, false)
@@ -31,23 +31,15 @@ class LoginAdapter(private val context: Context, private val listener:OnItemClic
         holder.itemView.edit_login.setOnClickListener{
             editlistener.OnEditItemClick(position)
         }
-
-
-
-
     }
 
     override fun getItemCount(): Int {
         return data.size
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun update(list:List<Login>){
-        data.clear()
-        data.addAll(list)
-        notifyDataSetChanged()
+    override fun getItemId(position: Int):Long {
+       return   data[position].id
     }
-
 
     inner class LoginViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView), View.OnClickListener {
@@ -71,6 +63,7 @@ class LoginAdapter(private val context: Context, private val listener:OnItemClic
             }
 
         }
+
 
     }
     interface OnItemClickListener{

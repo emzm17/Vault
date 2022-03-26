@@ -24,7 +24,11 @@
         android:id="@+id/cardFragment"
         android:name="com.example.vault.fragment.CardFragment"
         android:label="CardDetails"
-        tools:layout="@layout/fragment_card" />
+        tools:layout="@layout/fragment_card" >
+        <action
+            android:id="@+id/action_cardFragment_to_addCardFragment"
+            app:destination="@id/addCardFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addLoginFragment"
         android:name="com.example.vault.fragment.AddLoginFragment"
@@ -58,6 +62,14 @@
         <action
             android:id="@+id/action_updateLogin_to_loginFragment"
             app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCardFragment"
+        android:name="com.example.vault.fragment.AddCardFragment"
+        android:label="SaveCardDetails">
+        <action
+            android:id="@+id/action_addCardFragment_to_cardFragment"
+            app:destination="@id/cardFragment" />
     </fragment>
 
 </navigation>

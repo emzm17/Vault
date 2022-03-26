@@ -220,7 +220,11 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:gravity="center"
+<<<<<<< HEAD
                     android:text="@string/x"
+=======
+                    android:text="0"
+>>>>>>> card
                     android:textSize="26sp"
                     android:textStyle="bold" />
 

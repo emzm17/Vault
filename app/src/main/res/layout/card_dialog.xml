@@ -5,46 +5,55 @@
     android:layout_width="match_parent" android:layout_height="wrap_content">
 
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="300dp">
 
         <TextView
-            android:id="@+id/loginCategorydisplay"
+            android:id="@+id/cardTypedisplay"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:hint="Login Name"
-            android:text="Social"
+            android:text="CARD TYPE"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/loginWebsiteIcon"
+            android:id="@+id/cardNameIcon"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="70dp"
-            android:src="@drawable/accno" />
+            android:src="@drawable/ic_credit_card" />
+        <ImageView
+            android:id="@+id/cardExpiryCopy"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_baseline_content_copy" />
+
 
         <TextView
-            android:id="@+id/loginWebsitedisplayname"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:id="@+id/cardExpirydisplay"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="15dp"
-            android:layout_toEndOf="@id/loginWebsiteIcon"
+            android:layout_toStartOf="@+id/cardExpiryCopy"
+            android:layout_toEndOf="@id/cardNameIcon"
             android:gravity="center_vertical"
+            android:hint="CVV"
             android:textStyle="bold"
-            android:text="@string/websitename" />
+            tools:ignore="DuplicateIds" />
 
         <ImageView
-            android:id="@+id/loginEmailIcon"
+            android:id="@+id/CardHolderIcon"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
@@ -52,7 +61,7 @@
             android:src="@drawable/user" />
 
         <ImageView
-            android:id="@+id/copyEmail"
+            android:id="@+id/cardHolderNameCopy"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentEnd="true"
@@ -61,18 +70,18 @@
             android:src="@drawable/ic_baseline_content_copy" />
 
         <TextView
-            android:id="@+id/loginEmaildisplay"
+            android:id="@+id/cardHodlerNameisplay"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="110dp"
             android:layout_marginEnd="20dp"
-            android:layout_toStartOf="@id/copyEmail"
-            android:layout_toEndOf="@id/loginEmailIcon"
+            android:layout_toStartOf="@id/cardHolderNameCopy"
+            android:layout_toEndOf="@id/CardHolderIcon"
             android:gravity="center_vertical" />
 
         <ImageView
-            android:id="@+id/loginPasswordIcon"
+            android:id="@+id/cardCvvIcon"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="20dp"
@@ -80,7 +89,7 @@
             android:src="@drawable/password1" />
 
         <ImageView
-            android:id="@+id/copyPassword"
+            android:id="@+id/cardCVVcopy"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentEnd="true"
@@ -89,20 +98,20 @@
             android:src="@drawable/ic_baseline_content_copy" />
 
         <TextView
-            android:id="@+id/loginPassworddisplay"
+            android:id="@+id/cardCVVdisplay"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="170dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="15dp"
-            android:layout_toStartOf="@id/copyPassword"
-            android:layout_toEndOf="@id/loginPasswordIcon"
+            android:layout_toStartOf="@id/cardCVVcopy"
+            android:layout_toEndOf="@id/cardCvvIcon"
             android:gravity="center_vertical"
             tools:ignore="TextViewEdits" />
 
         <ImageView
-            android:id="@+id/loginwebiteiconID"
+            android:id="@+id/cardNumberIcon"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="20dp"
@@ -110,24 +119,24 @@
             android:src="@drawable/www" />
 
         <ImageView
-            android:id="@+id/gotowebsite"
+            android:id="@+id/cardNumberCopy"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="240dp"
             android:layout_marginEnd="20dp"
-            android:src="@drawable/ic_baseline_launch" />
+            android:src="@drawable/ic_baseline_content_copy" />
 
         <TextView
-            android:id="@+id/loginwebsitego"
+            android:id="@+id/cardNumberDispaly"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="240dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="15dp"
-            android:layout_toStartOf="@id/copyPassword"
-            android:layout_toEndOf="@id/loginPasswordIcon"
+            android:layout_toStartOf="@id/cardNumberCopy"
+            android:layout_toEndOf="@id/cardNumberIcon"
             android:gravity="center_vertical" />
     </RelativeLayout>
 </RelativeLayout>

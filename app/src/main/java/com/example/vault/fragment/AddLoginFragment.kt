@@ -19,6 +19,8 @@ import com.example.vault.repository.Repository
 import com.example.vault.viewmodel.DetailsViewModel
 import com.example.vault.viewmodel.DetailsViewModelFactory
 import kotlinx.android.synthetic.main.fragment_add_login.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class AddLoginFragment : Fragment() {
@@ -29,7 +31,7 @@ class AddLoginFragment : Fragment() {
     private lateinit var rp: Repository
     private lateinit var cardDatabase: CardDatabase
     private lateinit var loginDatabase: LoginDatabase
-    private val categorylist = arrayListOf("Educational", "Financial", "Medical", "Social")
+    private val categorylist = arrayListOf("Educational", "Financial", "Medical", "Social","Shopping")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -71,7 +73,9 @@ class AddLoginFragment : Fragment() {
         userpassword = loginPasswordEt.text.toString()
         website = loginWebsiteEt.text.toString()
         var selected = add_login_spinner.selectedItem.toString()
-        vm.insertlogin(Login(username, userpassword, website, selected))
+        val sdf=SimpleDateFormat("MM/dd/yyy")
+        val currentd=sdf.format(Date())
+        vm.insertlogin(Login(username, userpassword, website, selected,currentd))
     }
 
     private fun valid(loginName: String, loginEmail: String, loginPassword: String): Boolean {

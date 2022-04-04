@@ -7,7 +7,7 @@
     app:cardCornerRadius="15dp"
     android:padding="10dp"
     app:cardElevation="10dp"
-    android:id="@+id/loginitemcard"
+    android:id="@+id/credititemcard"
     android:layout_height="110dp">
 
 
@@ -19,70 +19,56 @@
         android:focusable="true">
 
         <ImageButton
-            android:id="@+id/edit_login"
-            android:background="@color/white"
+            android:id="@+id/edit_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
+            android:background="@color/white"
             android:src="@drawable/ic_baseline_create" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="50dp"
-            android:id="@+id/itemIcon"
+            android:id="@+id/CitemIcon"
             app:cardCornerRadius="50dp"
             android:layout_margin="20dp"
             app:cardBackgroundColor="@color/teal_200"
             android:layout_height="90dp">
 
             <TextView
-                android:id="@+id/itemIconTv"
+                android:id="@+id/CitemIconTv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:gravity="center"
                 android:text="A"
                 android:textSize="30sp" />
 
         </com.google.android.material.card.MaterialCardView>
 
-
         <TextView
-            android:id="@+id/itemTitle"
+            android:id="@+id/cardTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="10dp"
-            android:layout_toRightOf="@id/itemIcon"
-            android:text="Google"
-            android:textColor="#000" />
+            android:layout_toRightOf="@id/CitemIcon"
+            android:text="MasterCard"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
 
         <TextView
-            android:id="@+id/itemid"
+            android:id="@+id/CcreatedAt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/itemTitle"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="40dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_toEndOf="@id/itemIcon"
-            android:text="abcd@gmail.com" />
-
-        <TextView
-            android:id="@+id/createdtime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/itemid"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_toEndOf="@id/itemIcon"
-            android:text="13/12/2022" />
-
-
-
+            android:layout_toRightOf="@id/CitemIcon"
+            android:text="Date"
+            android:textSize="15sp" />
 
     </RelativeLayout>
 

@@ -1,31 +1,24 @@
 package com.example.vault.adapter
 
-import android.annotation.SuppressLint
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation.findNavController
-
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vault.R
-import com.example.vault.fragment.LoginFragment
-import com.example.vault.fragment.LoginFragmentDirections
 import com.example.vault.model.Login
 import kotlinx.android.synthetic.main.login_list.view.*
+import java.util.*
 
-class LoginAdapter(private val context: Context, private var data:List<Login>,private val listener:OnItemClickListener,private val editlistener:OnItemEditClickListener)
+
+class LoginAdapter(private val context: Context, private var data:List<Login>,private val listener:OnItemClickListener,
+                   private val editlistener:OnItemEditClickListener)
     : RecyclerView.Adapter<LoginAdapter.LoginViewHolder>() {
-
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LoginViewHolder {
-        val v = LayoutInflater.from(context).inflate(R.layout.login_list, parent, false)
-
+        val v = LayoutInflater.from(context).inflate(com.example.vault.R.layout.login_list, parent, false)
         return LoginViewHolder(v)
     }
-
     override fun onBindViewHolder(holder: LoginViewHolder, position: Int) {
         holder.bind(data[position])
         holder.itemView.edit_login.setOnClickListener{
@@ -47,15 +40,14 @@ class LoginAdapter(private val context: Context, private var data:List<Login>,pr
             itemView.setOnClickListener(this)
         }
         fun bind(item: Login) = with(itemView) {
-            itemTitle.text = item.loginwebsite
+            itemTitle.text = item.loginwebsite.uppercase()
+            val result=itemTitle.text.toString().uppercase()
             itemid.text = item.loginId
-            val i=getItem(item.category)
-            when(i){
-                "Educational"->itemIcon.setImageResource(R.drawable.educational)
-                "Medcial"->itemIcon.setImageResource(R.drawable.medical)
-                "Financial"->itemIcon.setImageResource(R.drawable.financial)
-                "Social"->itemIcon.setImageResource(R.drawable.social)
-            }
+            createdtime.text=item.createdAt
+            val colors=resources.getIntArray(com.example.vault.R.array.random_color)
+            val rColor=colors[Random().nextInt(colors.size)]
+            itemIcon.setCardBackgroundColor(rColor)
+            itemIconTv.text=result.subSequence(0,1)
         }
         override fun onClick(p0: View?) {
             if (adapterPosition != RecyclerView.NO_POSITION) {
@@ -75,14 +67,7 @@ class LoginAdapter(private val context: Context, private var data:List<Login>,pr
   }
 
 }
-private fun getItem(s:String):String {
-    val a=arrayListOf("Educational", "Financial", "Medcial", "Social")
-    for (i in a){
-         if(i==s)return s
-    }
 
-    return "random"
-}
 
 
 

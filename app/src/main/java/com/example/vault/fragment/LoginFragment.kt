@@ -1,9 +1,14 @@
 package com.example.vault.fragment
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.app.AlertDialog.*
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.view.*
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +22,7 @@ import com.example.vault.database.CardDatabase
 import com.example.vault.database.LoginDatabase
 import com.example.vault.model.Login
 import com.example.vault.repository.Repository
+import com.example.vault.utils.Constants.Companion.Masterpassword
 import com.example.vault.viewmodel.DetailsViewModel
 import com.example.vault.viewmodel.DetailsViewModelFactory
 import com.example.vault.utils.Dialog
@@ -29,8 +35,10 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
     private lateinit var cardDatabase: CardDatabase
     private lateinit var loginDatabase: LoginDatabase
     private val list= arrayListOf<Login>()
+    private lateinit var mpassword:String
+    private  var flag:Boolean = false
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+      inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
@@ -38,7 +46,7 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
     }
     @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        mpassword=""
 
         cardDatabase = CardDatabase.getDatabase(requireContext())
         loginDatabase = LoginDatabase.getDatabase(requireContext())
@@ -97,13 +105,34 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
     }
 
     override fun OnItemClick(position: Int) {
-        val d=Dialog(list[position])
-        d.show(requireActivity().supportFragmentManager,"dialog")
+
+                val d = Dialog(list[position])
+                d.show(requireActivity().supportFragmentManager, "dialog")
+
     }
 
     override fun OnEditItemClick(position: Int) {
         val action=LoginFragmentDirections.actionLoginFragmentToUpdateLogin(list[position])
         findNavController().navigate(action)
+    }
+
+    private fun enterPassword(){
+         val builder =  AlertDialog.Builder(requireContext())
+                      .setTitle("Enter your MasterPin")
+        val input=EditText(requireContext())
+        input.setHint("Enter Text")
+        input.inputType = InputType.TYPE_CLASS_TEXT
+        builder.setView(input)
+        builder.setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
+            mpassword = input.text.toString()
+
+        })
+        builder.setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, which -> dialog.cancel()
+         mpassword=""
+        })
+
+        builder.show()
+
     }
 
 

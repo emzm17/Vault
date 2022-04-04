@@ -8,4 +8,10 @@
     android:title="@string/password_generator"
     android:icon="@drawable/ic_baseline_lock_24">
 </item>
+    <item android:id="@+id/searchfragment"
+        android:title="Search"
+        android:icon="@drawable/ic_baseline_search_24">
+    </item>
+
+
 </menu>

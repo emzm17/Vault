@@ -12,6 +12,7 @@ data class Login(
     var loginPassword:String,
     var loginwebsite:String,
     var category:String,
+    var createdAt:String,
     @PrimaryKey(autoGenerate = true)
     var id:Long=0
 ): Parcelable

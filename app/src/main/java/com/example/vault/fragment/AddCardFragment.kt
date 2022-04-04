@@ -27,7 +27,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class AddCardFragment : Fragment() {
-    private val cardList = arrayListOf("MasterCard", "VISA","Maestro")
+    private val cardList = arrayListOf("MasterCard", "VISA","Maestro","Rupay")
     private lateinit var vm: DetailsViewModel
     private lateinit var rp: Repository
     private lateinit var cardDatabase: CardDatabase
@@ -60,7 +60,9 @@ class AddCardFragment : Fragment() {
             if(valid(cardNumber,cardHolder,cardExpiry,cardCVV)){
                 var split : Array<String> = cardExpiry.split("/").toTypedArray()
                 val selected=cardSpinner.selectedItem.toString()
-                vm.insertcard(Card(cardHolder,cardNumber,split[0],split[1],cardCVV,selected.uppercase()   ))
+                val sdf=SimpleDateFormat("MM/dd/yyy")
+                val currentd=sdf.format(Date())
+                vm.insertcard(Card(cardHolder,cardNumber,split[0],split[1],cardCVV,selected.uppercase() ,currentd  ))
                 Toast.makeText(requireContext(),"Card Details Saved ",Toast.LENGTH_LONG).show()
                 val action=AddCardFragmentDirections.actionAddCardFragmentToCardFragment()
                 findNavController().navigate(action)

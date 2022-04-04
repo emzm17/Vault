@@ -32,5 +32,8 @@ class Repository(private val cardDatabase: CardDatabase, private val loginDataba
     suspend fun updatelogin(login: Login){
        loginDatabase.loginDao().updateLogin(login)
     }
+    fun search(website:String):LiveData<List<Login>>{
+        return loginDatabase.loginDao().getSearchResult(website)
+    }
 
 }

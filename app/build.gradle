@@ -73,4 +73,8 @@ dependencies {
     implementation 'io.github.medyo:android-about-page:2.0.0'
     implementation 'com.github.husaynhakeem:about-page:0.1.1'
 
+
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 }

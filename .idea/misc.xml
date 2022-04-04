@@ -24,7 +24,10 @@
         <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/activity_lock.xml" value="0.22" />
         <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/activity_register.xml" value="0.3625" />
+        <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/card_dialog.xml" value="0.2975630611372381" />
         <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/card_item.xml" value="0.2975630611372381" />
+        <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/card_item1.xml" value="0.2975630611372381" />
+        <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/carddialog.xml" value="0.2975630611372381" />
         <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/cardfront.xml" value="0.2975630611372381" />
         <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/fragment_about.xml" value="0.2975630611372381" />
         <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/fragment_add_card.xml" value="0.25" />
@@ -32,6 +35,7 @@
         <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/fragment_card.xml" value="0.18" />
         <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/fragment_login.xml" value="0.18" />
         <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/fragment_password_generator.xml" value="0.3625" />
+        <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/fragment_search.xml" value="0.2975630611372381" />
         <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/fragment_settings.xml" value="0.3625" />
         <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/fragment_update_login.xml" value="0.3625" />
         <entry key="..\:/Users/Dibya Ranjan/Desktop/Projects/VAULT2/Vault2/app/src/main/res/layout/login_dialog.xml" value="0.3625" />

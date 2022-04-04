@@ -12,6 +12,7 @@ data class Card(
     var cardExpiryYear:String,
     var cardCvv:String,
     var cardType:String,
+    var creatAt:String,
     @PrimaryKey(autoGenerate = true)
     var id:Long=0
 )

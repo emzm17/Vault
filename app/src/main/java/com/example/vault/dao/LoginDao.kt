@@ -18,4 +18,8 @@ interface LoginDao {
 
     @Query("SELECT * FROM login_table")
     fun getAllLogin(): LiveData<List<Login>>
+
+    @Query("SELECT * FROM login_table WHERE loginwebsite like :website")
+    fun getSearchResult(website:String):LiveData<List<Login>>
+
 }

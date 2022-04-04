@@ -24,6 +24,8 @@ import kotlinx.android.synthetic.main.fragment_update_login.view.*
 import kotlinx.android.synthetic.main.login_dialog.*
 import kotlinx.android.synthetic.main.login_list.*
 import kotlinx.android.synthetic.main.login_list.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class UpdateLogin : Fragment() {
@@ -46,7 +48,6 @@ class UpdateLogin : Fragment() {
          v.ucategory.text=args.currentItem.category
          return v
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUPSpinner()
@@ -57,7 +58,9 @@ class UpdateLogin : Fragment() {
         updatebtn.setOnClickListener {
                    if(valid(uloginEmailEt.text.toString(),uloginPasswordEt.text.toString(),uloginWebsiteEt.text.toString())){
                        Log.i("Fragment",uloginWebsiteEt.toString())
-                       val curr=Login(uloginEmailEt.text.toString(),uloginPasswordEt.text.toString(),uloginWebsiteEt.text.toString(),uadd_login_spinner.selectedItem.toString(),args.currentItem.id)
+                       val sdf= SimpleDateFormat("MM/dd/yyy")
+                       val currentd=sdf.format(Date())
+                       val curr=Login(uloginEmailEt.text.toString(),uloginPasswordEt.text.toString(),uloginWebsiteEt.text.toString(),uadd_login_spinner.selectedItem.toString(),currentd,args.currentItem.id)
                        vm.updatelogin(curr)
                        findNavController().navigate(R.id.loginFragment)
                    }

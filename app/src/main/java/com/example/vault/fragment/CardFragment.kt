@@ -17,12 +17,14 @@ import com.example.vault.database.CardDatabase
 import com.example.vault.database.LoginDatabase
 import com.example.vault.model.Card
 import com.example.vault.repository.Repository
+import com.example.vault.utils.CardDialog
+import com.example.vault.utils.Dialog
 import com.example.vault.viewmodel.DetailsViewModel
 import com.example.vault.viewmodel.DetailsViewModelFactory
 import kotlinx.android.synthetic.main.fragment_card.*
 
 
-class CardFragment : Fragment(){
+class CardFragment : Fragment(),CardAdapter.OnItemClickListener{
 
     private lateinit var vm: DetailsViewModel
     private lateinit var rp: Repository
@@ -46,7 +48,7 @@ class CardFragment : Fragment(){
         rp = Repository(cardDatabase, loginDatabase)
         vm = ViewModelProvider(this, DetailsViewModelFactory(rp)).get(DetailsViewModel::class.java)
         list=ArrayList()
-        adapter= CardAdapter(requireContext(),list)
+        adapter= CardAdapter(requireContext(),list,this)
         card_rcview.layoutManager=LinearLayoutManager(requireContext())
         card_rcview.adapter=adapter
 
@@ -94,7 +96,10 @@ class CardFragment : Fragment(){
         }
     }
 
-
+    override fun OnItemClicked(adapterPosition: Int) {
+        val d = CardDialog(list[adapterPosition])
+        d.show(requireActivity().supportFragmentManager, "dialog")
+    }
 
 
 }

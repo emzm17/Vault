@@ -33,7 +33,8 @@ class Dialog(private var login: Login) : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         loginEmaildisplay.text = login.loginId
         loginPassworddisplay.text = login.loginPassword
-        loginWebsitedisplayname.text = login.loginwebsite
+        val website= login.loginwebsite
+        loginWebsitedisplayname.text =website.uppercase()
         loginCategorydisplay.text = login.category
         loginwebsitego.text="www.${loginWebsitedisplayname.text}.com"
         copyEmail.setOnClickListener {
@@ -54,7 +55,7 @@ class Dialog(private var login: Login) : BottomSheetDialogFragment() {
             Toast.makeText(requireContext(),"Copied",Toast.LENGTH_SHORT).show()
         }
         gotowebsite.setOnClickListener {
-               val temp="http://www.${loginWebsitedisplayname.text}.com"
+               val temp="http://www.${loginWebsitedisplayname.text.toString().lowercase()}.com"
                val i= Intent(Intent.ACTION_VIEW)
                i.setData(Uri.parse(temp))
                startActivity(i)

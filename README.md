@@ -16,9 +16,13 @@ Android App where you can store all Login details,card details in one place.App 
 
 
 
-## The following libraries were used in this project:- ##
+## The following libraries and Technologies were used in this project:- ##
+-  [Kotlin](https://kotlinlang.org/docs/home.html)
+-  [Recycle View](https://developer.android.com/guide/topics/ui/layout/recyclerview)
+-  [SharedPreference](https://developer.android.com/training/data-storage/shared-preferences)
 -  [Room](https://developer.android.com/jetpack/androidx/releases/room?gclsrc=ds&gclsrc=ds)
 -  [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
 -  [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?gclsrc=ds&gclsrc=ds)
 -  [Navigation Components](https://developer.android.com/guide/navigation/navigation-getting-started)
 -  [Coroutines](https://developer.android.com/kotlin/coroutines)
+

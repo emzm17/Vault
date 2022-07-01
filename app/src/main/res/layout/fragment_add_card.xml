@@ -23,8 +23,7 @@
         android:layout_marginTop="105dp"
         android:layout_marginStart="20dp"
         android:id="@+id/cardIcon"
-        android:src="@drawable/ic_pay"
-        />
+        android:src="@drawable/ic_pay" />
 
     <EditText
         android:id="@+id/cardNumberEt"

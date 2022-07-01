@@ -43,8 +43,7 @@
     <string name="old_pin">Old Pin</string>
     <string name="websitename">websitename</string>
     <string name="this_keeps_your_app_secure">THIS KEEPS YOUR APP SECURE</string>
-<<<<<<< HEAD
-=======
+
     <string name="issue_by">Issue By</string>
     <string name="card_number1">Card Number</string>
     <string name="expiry_date1">Expiry Date</string>
@@ -54,7 +53,8 @@
     <string name="add_card1">Add Card</string>
     <string name="dibya_ranjan_barwa">Dibya Ranjan Barwa</string>
     <string name="visa">VISA</string>
->>>>>>> card
+    <string name="username_or_email">Username or Email</string>
+    <string name="aditional_notes_optional">Aditional Notes (optional)</string>
 
 
 </resources>

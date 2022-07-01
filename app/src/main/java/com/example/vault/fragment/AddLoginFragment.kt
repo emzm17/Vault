@@ -1,5 +1,6 @@
 package com.example.vault.fragment
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -68,14 +69,16 @@ class AddLoginFragment : Fragment() {
         }
 
     }
+    @SuppressLint("SimpleDateFormat")
     private fun SaveLoginCredentials() {
         username = loginEmailEt.text.toString()
         userpassword = loginPasswordEt.text.toString()
         website = loginWebsiteEt.text.toString()
+        val notes=loginNoteEt.text.toString()
         var selected = add_login_spinner.selectedItem.toString()
         val sdf=SimpleDateFormat("MM/dd/yyy")
         val currentd=sdf.format(Date())
-        vm.insertlogin(Login(username, userpassword, website, selected,currentd))
+        vm.insertlogin(Login(username, userpassword, website,notes, selected,currentd))
     }
 
     private fun valid(loginName: String, loginEmail: String, loginPassword: String): Boolean {

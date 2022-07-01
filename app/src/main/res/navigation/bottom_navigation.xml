@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/addLoginFragment"
         android:name="com.example.vault.fragment.AddLoginFragment"
-        android:label="SaveLoginDetails" >
+        android:label="AddLoginDetails" >
         <action
             android:id="@+id/action_addLoginFragment_to_loginFragment2"
             app:destination="@id/loginFragment"

@@ -60,7 +60,7 @@ class UpdateLogin : Fragment() {
                        Log.i("Fragment",uloginWebsiteEt.toString())
                        val sdf= SimpleDateFormat("MM/dd/yyy")
                        val currentd=sdf.format(Date())
-                       val curr=Login(uloginEmailEt.text.toString(),uloginPasswordEt.text.toString(),uloginWebsiteEt.text.toString(),uadd_login_spinner.selectedItem.toString(),currentd,args.currentItem.id)
+                       val curr=Login(uloginEmailEt.text.toString(),uloginPasswordEt.text.toString(),uloginWebsiteEt.text.toString(),uadd_login_spinner.selectedItem.toString(),currentd,"",args.currentItem.id)
                        vm.updatelogin(curr)
                        findNavController().navigate(R.id.loginFragment)
                    }

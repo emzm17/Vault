@@ -9,7 +9,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.vault.dao.LoginDao
 import com.example.vault.model.Login
 
-@Database(entities = [Login::class],version = 2,exportSchema = false)
+@Database(entities = [Login::class],version = 3,exportSchema = false)
 abstract class LoginDatabase: RoomDatabase() {
     abstract fun loginDao(): LoginDao
     companion object {

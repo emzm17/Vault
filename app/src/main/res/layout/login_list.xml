@@ -13,19 +13,18 @@
 
     <RelativeLayout
         android:layout_margin="10dp"
-        android:background="?android:attr/selectableItemBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:focusable="true">
 
         <ImageButton
             android:id="@+id/edit_login"
-            android:background="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="20dp"
+            android:background="@color/white"
             android:src="@drawable/ic_baseline_create" />
 
         <com.google.android.material.card.MaterialCardView
@@ -52,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:layout_toRightOf="@id/itemIcon"
             android:text="Google"
@@ -70,16 +69,6 @@
             android:layout_toEndOf="@id/itemIcon"
             android:text="abcd@gmail.com" />
 
-        <TextView
-            android:id="@+id/createdtime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/itemid"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_toEndOf="@id/itemIcon"
-            android:text="13/12/2022" />
 
 
 

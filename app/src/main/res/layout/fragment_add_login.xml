@@ -71,7 +71,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="220dp"
         android:src="@drawable/www" />
 
     <EditText
@@ -79,7 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="220dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@id/loginWebsiteIcon"
         android:hint="website"
@@ -91,7 +91,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="280dp"
         android:src="@drawable/document" />
 
     <EditText
@@ -99,7 +99,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="280dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@id/loginWebsiteIcon"
         android:hint="@string/aditional_notes_optional"

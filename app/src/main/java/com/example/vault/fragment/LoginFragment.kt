@@ -112,27 +112,27 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
     }
 
     override fun OnEditItemClick(position: Int) {
-        val action=LoginFragmentDirections.actionLoginFragmentToUpdateLogin(list[position])
-        findNavController().navigate(action)
+        alertdialog(position)
+
     }
 
-    private fun enterPassword(){
-         val builder =  AlertDialog.Builder(requireContext())
-                      .setTitle("Enter your MasterPin")
-        val input=EditText(requireContext())
-        input.setHint("Enter Text")
-        input.inputType = InputType.TYPE_CLASS_TEXT
-        builder.setView(input)
-        builder.setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
-            mpassword = input.text.toString()
 
-        })
-        builder.setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, which -> dialog.cancel()
-         mpassword=""
-        })
+    private fun alertdialog(position: Int){
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Edit")
+        builder.setMessage("Are are sure you want to Edit?")
+        builder.setPositiveButton("Yes" ){ dialog: DialogInterface, i: Int ->
+            val action=LoginFragmentDirections.actionLoginFragmentToUpdateLogin(list[position])
+            findNavController().navigate(action)
+            dialog.dismiss()
 
-        builder.show()
-
+        }
+        builder.setNegativeButton("No"){ dialog:DialogInterface,i:Int->
+            dialog.dismiss()
+        }
+        val alertDialog=builder.create()
+        alertDialog.setCancelable(false)
+        alertDialog.show()
     }
 
 

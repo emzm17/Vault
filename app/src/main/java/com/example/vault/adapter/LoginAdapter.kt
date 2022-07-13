@@ -43,7 +43,6 @@ class LoginAdapter(private val context: Context, private var data:List<Login>,pr
             itemTitle.text = item.loginwebsite.uppercase()
             val result=itemTitle.text.toString().uppercase()
             itemid.text = item.loginId
-            createdtime.text=item.createdAt
             val colors=resources.getIntArray(com.example.vault.R.array.random_color)
             val rColor=colors[Random().nextInt(colors.size)]
             itemIcon.setCardBackgroundColor(rColor)

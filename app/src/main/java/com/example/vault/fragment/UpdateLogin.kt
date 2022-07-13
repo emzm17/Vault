@@ -55,12 +55,12 @@ class UpdateLogin : Fragment() {
         loginDatabase = LoginDatabase.getDatabase(requireContext())
         rp = Repository(cardDatabase, loginDatabase)
         vm = ViewModelProvider(this, DetailsViewModelFactory(rp)).get(DetailsViewModel::class.java)
-        updatebtn.setOnClickListener {
+        updateBtn.setOnClickListener {
                    if(valid(uloginEmailEt.text.toString(),uloginPasswordEt.text.toString(),uloginWebsiteEt.text.toString())){
                        Log.i("Fragment",uloginWebsiteEt.toString())
                        val sdf= SimpleDateFormat("MM/dd/yyy")
                        val currentd=sdf.format(Date())
-                       val curr=Login(uloginEmailEt.text.toString(),uloginPasswordEt.text.toString(),uloginWebsiteEt.text.toString(),uadd_login_spinner.selectedItem.toString(),currentd,"",args.currentItem.id)
+                       val curr=Login(uloginEmailEt.text.toString(),uloginPasswordEt.text.toString(),uloginWebsiteEt.text.toString(),uadd_login_spinner.selectedItem.toString(),currentd,uloginNoteEt.text.toString(),args.currentItem.id)
                        vm.updatelogin(curr)
                        findNavController().navigate(R.id.loginFragment)
                    }
@@ -69,7 +69,6 @@ class UpdateLogin : Fragment() {
                    }
         }
     }
-
     private fun valid(loginName: String, loginEmail: String, loginPassword: String): Boolean {
 
         return !(loginName.isEmpty() || loginEmail.isEmpty() || loginPassword.isEmpty())

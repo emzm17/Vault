@@ -55,6 +55,9 @@
     <string name="visa">VISA</string>
     <string name="username_or_email">Username or Email</string>
     <string name="aditional_notes_optional">Aditional Notes (optional)</string>
+    <string name="google">Google</string>
+    <string name="cardcreds">CardCreds</string>
+    <string name="logincreds">LoginCreds</string>
 
 
 </resources>

@@ -1,5 +1,6 @@
 package com.example.vault.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -38,14 +39,10 @@ class CardAdapter(private val context: Context,private val data:List<Card>,priva
       init{
           itemView.setOnClickListener(this)
       }
+     @SuppressLint("SetTextI18n")
      fun bind(item:Card)=with(itemView){
-         val colors=resources.getIntArray(com.example.vault.R.array.random_color)
-         val rColor=colors[Random().nextInt(colors.size)]
-         CitemIcon.setCardBackgroundColor(rColor)
          cardTitle.text=item.cardType
-         val result=cardTitle.text.toString()
-         CitemIconTv.text=result.subSequence(0,1)
-         CcreatedAt.text=item.creatAt
+         expriryDate.text=item.cardExpiryMonth+"/"+item.cardExpiryYear
       }
 
      override fun onClick(p0: View?) {

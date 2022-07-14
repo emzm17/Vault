@@ -2,8 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.Vault" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/teal_700</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+
+
+
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -14,7 +15,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <array name="random_color">
+      <array name="random_color">
         <item name="red_400" type="color">#e84e40</item>
         <item name="pink_400" type="color">#ec407a</item>
         <item name="purple_400" type="color">#ab47bc</item>

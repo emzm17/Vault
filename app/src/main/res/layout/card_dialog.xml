@@ -3,9 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:rowCount="6"
     android:layout_width="match_parent" android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/cardheader"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#B57820">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_baseline_credit_card_24" />
+
+    </RelativeLayout>
+
 
 
     <RelativeLayout
+        android:layout_below="@id/cardheader"
         android:layout_width="match_parent"
         android:layout_height="300dp">
 

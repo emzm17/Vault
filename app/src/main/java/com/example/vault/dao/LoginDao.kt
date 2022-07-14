@@ -22,4 +22,7 @@ interface LoginDao {
     @Query("SELECT * FROM login_table WHERE loginwebsite like :website")
     fun getSearchResult(website:String):LiveData<List<Login>>
 
+    @Query("SELECT * FROM login_table WHERE category like :category")
+    fun getCategoryList(category:String):LiveData<List<Login>>
+
 }

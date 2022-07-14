@@ -32,7 +32,7 @@ class AddLoginFragment : Fragment() {
     private lateinit var rp: Repository
     private lateinit var cardDatabase: CardDatabase
     private lateinit var loginDatabase: LoginDatabase
-    private val categorylist = arrayListOf("Educational", "Financial", "Medical", "Social","Shopping")
+    private val categorylist = arrayListOf("E-Commerce","Work","Social","Others")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -78,7 +78,7 @@ class AddLoginFragment : Fragment() {
         var selected = add_login_spinner.selectedItem.toString()
         val sdf=SimpleDateFormat("MM/dd/yyy")
         val currentd=sdf.format(Date())
-        vm.insertlogin(Login(username, userpassword, website,notes, selected,currentd))
+        vm.insertlogin(Login(username, userpassword, website,selected,currentd.toString(),notes))
     }
 
     private fun valid(loginName: String, loginEmail: String, loginPassword: String): Boolean {

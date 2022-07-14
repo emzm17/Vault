@@ -43,6 +43,7 @@
         android:layout_below="@id/confirmpin"
         android:layout_marginStart="150dp"
         android:layout_marginTop="40dp"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:gravity="center_horizontal"
         android:text="@string/change_pin" />
 

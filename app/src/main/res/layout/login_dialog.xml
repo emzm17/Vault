@@ -4,23 +4,48 @@
     android:rowCount="6"
     android:layout_width="match_parent" android:layout_height="wrap_content">
 
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#B67719">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_desktop_mac_black_24dp" />
+
+    </RelativeLayout>
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_below="@id/header"
+        android:layout_height="300dp"
+        tools:ignore="NotSibling">
 
         <TextView
             android:id="@+id/loginCategorydisplay"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:hint="Login Name"
             android:text="Social"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:text="Created On 12-11-2022 " />
 
         <ImageView
             android:id="@+id/loginWebsiteIcon"
@@ -40,8 +65,8 @@
             android:layout_marginBottom="15dp"
             android:layout_toEndOf="@id/loginWebsiteIcon"
             android:gravity="center_vertical"
-            android:textStyle="bold"
-            android:text="@string/websitename" />
+            android:text="@string/websitename"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/loginEmailIcon"
@@ -129,5 +154,8 @@
             android:layout_toStartOf="@id/copyPassword"
             android:layout_toEndOf="@id/loginPasswordIcon"
             android:gravity="center_vertical" />
+
+
+
     </RelativeLayout>
-</RelativeLayout>
+    </RelativeLayout>

@@ -62,9 +62,6 @@
         <action
             android:id="@+id/action_updateLogin_to_loginFragment"
             app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_updateLogin_to_searchfragment"
-            app:destination="@id/searchfragment" />
     </fragment>
     <fragment
         android:id="@+id/addCardFragment"

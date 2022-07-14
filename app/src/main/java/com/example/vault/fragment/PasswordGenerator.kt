@@ -33,6 +33,7 @@ class PasswordGenerator : Fragment() {
         super.onViewCreated(view, savedInstanceState)
        lengthtext.addTextChangedListener {
                generatePassword.isEnabled = !(it!!.length<0 || it.isNullOrEmpty())
+
        }
        generatePassword.setOnClickListener {
                val list = ArrayList<Char>()

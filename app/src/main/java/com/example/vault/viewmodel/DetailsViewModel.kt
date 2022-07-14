@@ -48,5 +48,7 @@ class DetailsViewModel(private val repository: Repository): ViewModel() {
     fun searchForResult(website:String):LiveData<List<Login>>{
         return repository.search(website)
     }
-
+    fun category(category:String):LiveData<List<Login>>{
+        return repository.getCategory(category)
+    }
 }

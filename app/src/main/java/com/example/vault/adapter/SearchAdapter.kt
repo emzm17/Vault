@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.vault.R
 import com.example.vault.fragment.Search
 import com.example.vault.model.Login
 import kotlinx.android.synthetic.main.login_list.view.*
@@ -37,12 +38,25 @@ class SearchAdapter(private val context: Context, private var list:List<Login>, 
          fun bind(item:Login)=with(itemView)
          {
              itemTitle.text = item.loginwebsite.uppercase()
-             val result=itemTitle.text.toString().uppercase()
              itemid.text = item.loginId
-             val colors=resources.getIntArray(com.example.vault.R.array.random_color)
-             val rColor=colors[Random().nextInt(colors.size)]
-             itemIcon.setCardBackgroundColor(rColor)
-             itemIconTv.text=result.subSequence(0,1)
+             when(item.loginwebsite.uppercase()){
+                 "AMAZON"->{ itemIcon.setImageResource(R.drawable.amazon) }
+                 "FACEBOOK"-> { itemIcon.setImageResource(R.drawable.facebook)}
+                 "FLIPKART"->{ itemIcon.setImageResource(R.drawable.flipkart)}
+                 "GITHUB"->{ itemIcon.setImageResource(R.drawable.github)}
+                 "GMAIL"->{ itemIcon.setImageResource(R.drawable.gmail)}
+                 "INSTAGRAM"->{ itemIcon.setImageResource(R.drawable.instagram)}
+                 "LINKEDIN"->{ itemIcon.setImageResource(R.drawable.linkedin)}
+                 "PINTEREST"->{ itemIcon.setImageResource(R.drawable.pinterest)}
+                 "REDDIT"->{ itemIcon.setImageResource(R.drawable.reddit)}
+                 "SLACK"->{ itemIcon.setImageResource(R.drawable.slack)}
+                 "SPOTIFY"->{ itemIcon.setImageResource(R.drawable.spotify)}
+                 "TWITTER"->{ itemIcon.setImageResource(R.drawable.twitter)}
+                 "TEAMS"->{ itemIcon.setImageResource(R.drawable.team)}
+                 else ->{
+                     itemIcon.setImageResource(R.drawable.user_1)
+                 }
+             }
          }
 
         override fun onClick(p0: View?) {

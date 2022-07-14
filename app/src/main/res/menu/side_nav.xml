@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:id="@+id/settings"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="single">
+
+    <item  android:id="@+id/loginFragment"
+        android:title="@string/logincreds"
+
+        android:icon="@drawable/www">
+    </item>
+    <item   android:id="@+id/cardFragment"
+        android:title="@string/cardcreds"
+        android:icon="@drawable/ic_credit_card">
+    </item>
+    </group>
+
+    <item android:id="@+id/settings"
     android:title="@string/settings"
     android:icon="@drawable/ic_baseline_settings_24">
 </item>
@@ -12,6 +26,7 @@
         android:title="Search"
         android:icon="@drawable/ic_baseline_search_24">
     </item>
+
 
 
 </menu>

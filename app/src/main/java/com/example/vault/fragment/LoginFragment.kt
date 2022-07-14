@@ -7,6 +7,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
+import android.util.Log
 import android.view.*
 import android.widget.EditText
 import androidx.fragment.app.Fragment
@@ -55,6 +56,7 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
         adapter = LoginAdapter(requireContext(),list,this,this)
         login_rcview.layoutManager = LinearLayoutManager(requireContext())
         login_rcview.adapter = adapter
+        setupCategory()
 
         vm.allLogin().observe(viewLifecycleOwner) { l ->
              if(!l.isNullOrEmpty()){
@@ -134,7 +136,42 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
         alertDialog.setCancelable(false)
         alertDialog.show()
     }
+    private fun setupCategory(){
+         filterECommerceButton.setOnClickListener {
+               vm.category(
+                   "E-Commerce"
+               ).observe(viewLifecycleOwner){
+                     adapter.update(it)
+               }
+         }
+         filterSocialButton.setOnClickListener {
+             vm.category(
+                 "Social"
+             ).observe(viewLifecycleOwner){
+                 adapter.update(it)
+             }
+         }
+         filterWorkButton.setOnClickListener {
 
+             vm.category(
+                 "Work"
+             ).observe(viewLifecycleOwner){
+                 adapter.update(it)
+             }
+         }
+         filterOtherButton.setOnClickListener {
+             vm.category(
+                 "Others"
+             ).observe(viewLifecycleOwner){
+                 adapter.update(it)
+             }
+         }
+        filterAll.setOnClickListener {
+               vm.allLogin().observe(viewLifecycleOwner){
+                      adapter.update(it)
+               }
+        }
+    }
 
 
 

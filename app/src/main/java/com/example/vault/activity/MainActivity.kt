@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
-    private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var appBarConfiguration: AppBarConfiguration
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,11 +21,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration= AppBarConfiguration(setOf(R.id.loginFragment,R.id.cardFragment),draw_layout)
         setSupportActionBar(toolbar)
         navController=findNavController(R.id.container_fragment)
-        bottomNavigationView=findViewById(R.id.bottom_navigation_view)
         setupActionBarWithNavController(navController,appBarConfiguration)
-        bottomNavigationView.setupWithNavController(navController)
         nav_view.setupWithNavController(navController)
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

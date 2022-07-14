@@ -98,7 +98,7 @@
         android:layout_below="@id/cardCvvEt"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-
+        android:backgroundTint="@color/colorPrimary"
         android:padding="5dp"
         android:text="@string/add_card1"
         android:textColor="#fff" />

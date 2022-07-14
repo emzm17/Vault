@@ -27,49 +27,38 @@
             android:layout_marginEnd="20dp"
             android:background="@color/white"
             android:src="@drawable/ic_baseline_create" />
-
-        <com.google.android.material.card.MaterialCardView
+        <ImageView
+            android:id="@+id/carditemIcon"
             android:layout_width="50dp"
-            android:id="@+id/CitemIcon"
-            app:cardCornerRadius="50dp"
-            android:layout_margin="20dp"
-            app:cardBackgroundColor="@color/teal_200"
-            android:layout_height="90dp">
+            android:src="@drawable/credit_card"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp" />
 
-            <TextView
-                android:id="@+id/CitemIconTv"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:text="A"
-                android:textSize="30sp" />
-
-        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/cardTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="10dp"
-            android:layout_toRightOf="@id/CitemIcon"
+            android:layout_marginEnd="10dp"
+            android:layout_toRightOf="@id/carditemIcon"
             android:text="MasterCard"
             android:textColor="#000"
             android:textSize="20sp" />
 
 
         <TextView
-            android:id="@+id/CcreatedAt"
+            android:id="@+id/expriryDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="40dp"
-            android:layout_marginRight="10dp"
-            android:layout_toRightOf="@id/CitemIcon"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/carditemIcon"
             android:text="Date"
             android:textSize="15sp" />
-
     </RelativeLayout>
 
 

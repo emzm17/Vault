@@ -36,4 +36,8 @@ class Repository(private val cardDatabase: CardDatabase, private val loginDataba
         return loginDatabase.loginDao().getSearchResult(website)
     }
 
+   fun getCategory(category:String):LiveData<List<Login>>{
+         return loginDatabase.loginDao().getCategoryList(category)
+    }
+
 }

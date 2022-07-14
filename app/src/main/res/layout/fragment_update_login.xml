@@ -112,7 +112,7 @@
         android:layout_below="@id/uloginNoteEt"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:text="Update" />
 
     <com.google.android.material.button.MaterialButton
@@ -122,6 +122,6 @@
         android:layout_below="@id/updateBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:text="Generate Password" />
 </RelativeLayout>

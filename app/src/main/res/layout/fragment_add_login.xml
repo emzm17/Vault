@@ -112,7 +112,7 @@
         android:layout_below="@id/loginNoteEt"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="@color/colorPrimary"
         android:text="@string/save" />
     <com.google.android.material.button.MaterialButton
         android:id="@+id/passwordBtn"
@@ -121,6 +121,6 @@
         android:layout_below="@id/addLoginBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="@color/colorPrimary"
         android:text="@string/generate_password"/>
 </RelativeLayout>

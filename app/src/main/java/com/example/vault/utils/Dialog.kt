@@ -35,8 +35,12 @@ class Dialog(private var login: Login) : BottomSheetDialogFragment() {
         loginPassworddisplay.text = login.loginPassword
         val website= login.loginwebsite
         loginWebsitedisplayname.text =website.uppercase()
-        loginCategorydisplay.text = login.category
+        if(login.note.isNullOrEmpty()){
+            loginCategorydisplay.text="No notes"
+        }
+        else loginCategorydisplay.text = login.note
         loginwebsitego.text="www.${loginWebsitedisplayname.text}.com"
+        date.text="Created On-${login.createdAt}"
         copyEmail.setOnClickListener {
             val textcopy = loginEmaildisplay.text
             val clipboardManager =

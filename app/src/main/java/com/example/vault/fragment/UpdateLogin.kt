@@ -33,7 +33,7 @@ class UpdateLogin : Fragment() {
     private lateinit var rp: Repository
     private lateinit var cardDatabase: CardDatabase
     private lateinit var loginDatabase: LoginDatabase
-    private val categorylist = arrayListOf("Educational", "Financial", "Medcial", "Social")
+    private val categorylist = arrayListOf("E-Commerce","Work","Social","Others")
   private val args by navArgs<UpdateLoginArgs>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,7 +66,7 @@ class UpdateLogin : Fragment() {
                    }
             else{
                 Toast.makeText(requireContext(),"Empty boxes are present",Toast.LENGTH_LONG).show()
-                   }
+             }
         }
     }
     private fun valid(loginName: String, loginEmail: String, loginPassword: String): Boolean {

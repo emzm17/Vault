@@ -18,11 +18,10 @@
     </RelativeLayout>
 
 
-
     <RelativeLayout
-        android:layout_below="@id/cardheader"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="300dp"
+        android:layout_below="@id/cardheader">
 
         <TextView
             android:id="@+id/cardTypedisplay"
@@ -31,9 +30,17 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:text="CARD TYPE"
+            android:text="Card Name"
             android:textSize="20dp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/updatetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:text="Created on 17-03-2022" />
 
         <ImageView
             android:id="@+id/cardNameIcon"
@@ -42,6 +49,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="70dp"
             android:src="@drawable/ic_credit_card" />
+
         <ImageView
             android:id="@+id/cardExpiryCopy"
             android:layout_width="25dp"
@@ -63,7 +71,6 @@
             android:layout_toStartOf="@+id/cardExpiryCopy"
             android:layout_toEndOf="@id/cardNameIcon"
             android:gravity="center_vertical"
-            android:hint="CVV"
             android:textStyle="bold"
             tools:ignore="DuplicateIds" />
 

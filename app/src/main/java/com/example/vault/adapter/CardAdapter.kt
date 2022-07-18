@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.login_list.view.*
 import java.util.*
 
 
-class CardAdapter(private val context: Context,private val data:List<Card>,private val clickListener:OnItemClickListener):RecyclerView.Adapter<CardAdapter.CardViewHolder>(){
+class CardAdapter(private val context: Context,private var data:List<Card>,private val clickListener:OnItemClickListener):RecyclerView.Adapter<CardAdapter.CardViewHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
@@ -30,7 +30,10 @@ class CardAdapter(private val context: Context,private val data:List<Card>,priva
     override fun getItemId(position: Int): Long {
         return data[position].id
     }
-
+   fun update(list:List<Card>){
+        data=list
+        notifyDataSetChanged()
+   }
     override fun getItemCount(): Int {
       return data.size
     }

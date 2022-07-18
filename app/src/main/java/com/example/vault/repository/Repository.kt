@@ -39,5 +39,8 @@ class Repository(private val cardDatabase: CardDatabase, private val loginDataba
    fun getCategory(category:String):LiveData<List<Login>>{
          return loginDatabase.loginDao().getCategoryList(category)
     }
+    fun getType(cardType:String):LiveData<List<Card>>{
+        return cardDatabase.cardDao().getAllcardType(cardType)
+    }
 
 }

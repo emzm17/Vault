@@ -58,6 +58,7 @@
     <string name="google">Google</string>
     <string name="cardcreds">CardCreds</string>
     <string name="logincreds">LoginCreds</string>
+    <string name="enter_your_pin">Enter your Pin</string>
 
 
 </resources>

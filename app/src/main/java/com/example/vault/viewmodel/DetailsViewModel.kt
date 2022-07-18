@@ -51,4 +51,7 @@ class DetailsViewModel(private val repository: Repository): ViewModel() {
     fun category(category:String):LiveData<List<Login>>{
         return repository.getCategory(category)
     }
+    fun type(cardtype:String):LiveData<List<Card>>{
+        return repository.getType(cardtype)
+    }
 }

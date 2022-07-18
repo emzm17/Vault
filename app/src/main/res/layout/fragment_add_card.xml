@@ -2,13 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
-        android:textSize="24sp"
-        android:text="@string/issuer"/>
+        android:text="Type"
+        android:textSize="24sp" />
 
     <Spinner
         android:id="@+id/cardSpinner"
@@ -17,12 +18,13 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp" />
+
     <ImageView
+        android:id="@+id/cardIcon"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginTop="105dp"
         android:layout_marginStart="20dp"
-        android:id="@+id/cardIcon"
+        android:layout_marginTop="105dp"
         android:src="@drawable/ic_pay" />
 
     <EditText
@@ -90,12 +92,31 @@
         android:layout_toEndOf="@id/cardIcon"
         android:hint="@string/cvv1"
         android:inputType="number" />
+    <ImageView
+        android:id="@+id/cardName"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="345dp"
+        android:src="@drawable/ic_pay" />
+
+
+    <EditText
+        android:id="@+id/cardNameEt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@id/cardIcon"
+        android:hint="Name"
+        android:inputType="text" />
 
     <Button
         android:id="@+id/addDebitCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cardCvvEt"
+        android:layout_below="@id/cardNameEt"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/colorPrimary"

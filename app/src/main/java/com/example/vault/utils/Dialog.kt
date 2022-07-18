@@ -11,8 +11,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.ListFragment
-import androidx.navigation.fragment.findNavController
 import com.example.vault.R
 import com.example.vault.model.Login
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

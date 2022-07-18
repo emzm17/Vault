@@ -22,6 +22,7 @@ import com.example.vault.utils.Dialog
 import com.example.vault.viewmodel.DetailsViewModel
 import com.example.vault.viewmodel.DetailsViewModelFactory
 import kotlinx.android.synthetic.main.fragment_card.*
+import kotlinx.android.synthetic.main.fragment_login.*
 
 
 class CardFragment : Fragment(),CardAdapter.OnItemClickListener{
@@ -51,6 +52,7 @@ class CardFragment : Fragment(),CardAdapter.OnItemClickListener{
         adapter= CardAdapter(requireContext(),list,this)
         card_rcview.layoutManager=LinearLayoutManager(requireContext())
         card_rcview.adapter=adapter
+        setupType()
 
         vm.allCard().observe(viewLifecycleOwner) { c ->
                 if(!c.isNullOrEmpty()){
@@ -99,6 +101,45 @@ class CardFragment : Fragment(),CardAdapter.OnItemClickListener{
     override fun OnItemClicked(adapterPosition: Int) {
         val d = CardDialog(list[adapterPosition])
         d.show(requireActivity().supportFragmentManager, "dialog")
+    }
+    private fun setupType(){
+        credit.setOnClickListener {
+            vm.type(
+                "Credit"
+            ).observe(viewLifecycleOwner){
+                adapter.update(it)
+            }
+        }
+        debit.setOnClickListener {
+            vm.type(
+                "Debit"
+            ).observe(viewLifecycleOwner) {
+                adapter.update(it)
+            }
+        }
+            forex.setOnClickListener {
+                vm.type(
+                    "Forex"
+                ).observe(viewLifecycleOwner) {
+                    adapter.update(it)
+                }
+            }
+                prepaid.setOnClickListener {
+                    vm.type(
+                        "Prepaid"
+                    ).observe(viewLifecycleOwner) {
+                        adapter.update(it)
+                    }
+                }
+                     others.setOnClickListener {
+                         vm.type(
+                             "Others"
+                         ).observe(viewLifecycleOwner) {
+                             adapter.update(it)
+                         }
+                     }
+
+
     }
 
 

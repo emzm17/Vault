@@ -33,6 +33,7 @@ class CardDialog(private var card: Card): BottomSheetDialogFragment()  {
         cardExpirydisplay.text="${card.cardExpiryMonth}/${card.cardExpiryYear}"
         cardTypedisplay.text=card.cardType
         cardNumberDispaly.text=card.cardNumber
+        updatetime.text="Update on ${card.creatAt}"
 
         cardExpiryCopy.setOnClickListener{
             val textcopy = cardExpiry.text

@@ -27,7 +27,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class AddCardFragment : Fragment() {
-    private val cardList = arrayListOf("MasterCard", "VISA","Maestro","Rupay")
+    private val cardList = arrayListOf("Debit","Credit","Forex","Prepaid","Others")
     private lateinit var vm: DetailsViewModel
     private lateinit var rp: Repository
     private lateinit var cardDatabase: CardDatabase
@@ -62,7 +62,7 @@ class AddCardFragment : Fragment() {
                 val selected=cardSpinner.selectedItem.toString()
                 val sdf=SimpleDateFormat("MM/dd/yyy")
                 val currentd=sdf.format(Date())
-                vm.insertcard(Card(cardHolder,cardNumber,split[0],split[1],cardCVV,selected.uppercase() ,currentd  ))
+                vm.insertcard(Card(cardHolder,cardNumber,split[0],split[1],cardCVV,selected.uppercase(),cardNameEt.text.toString(),currentd ))
                 Toast.makeText(requireContext(),"Card Details Saved ",Toast.LENGTH_LONG).show()
                 val action=AddCardFragmentDirections.actionAddCardFragmentToCardFragment()
                 findNavController().navigate(action)
@@ -174,7 +174,7 @@ class AddCardFragment : Fragment() {
     private fun valid(cardNumber : String, cardHolder : String,  cardExpiry: String, cardCVV: String) : Boolean{
         val list = cardExpiry.split("/")
 
-        return !(cardNumber.isEmpty() || cardHolder.isEmpty() || cardCVV.isEmpty()
+        return !(cardNumber.isEmpty() || cardHolder.isEmpty() || cardCVV.isEmpty() || cardNameEt.text.isEmpty()
                 || cardExpiry.isEmpty() || cardSpinner.isEmpty() || list[0].toInt() > 12)
     }
 

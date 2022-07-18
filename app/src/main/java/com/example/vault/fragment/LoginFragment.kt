@@ -27,7 +27,10 @@ import com.example.vault.utils.Constants.Companion.Masterpassword
 import com.example.vault.viewmodel.DetailsViewModel
 import com.example.vault.viewmodel.DetailsViewModelFactory
 import com.example.vault.utils.Dialog
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.password_dialog.*
+import java.util.zip.Inflater
 
 class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter.OnItemEditClickListener{
     private lateinit var vm: DetailsViewModel
@@ -35,9 +38,8 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
     private lateinit var rp: Repository
     private lateinit var cardDatabase: CardDatabase
     private lateinit var loginDatabase: LoginDatabase
-    private val list= arrayListOf<Login>()
+    private val loginList= arrayListOf<Login>()
     private lateinit var mpassword:String
-    private  var flag:Boolean = false
     override fun onCreateView(
       inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -53,22 +55,23 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
         loginDatabase = LoginDatabase.getDatabase(requireContext())
         rp = Repository(cardDatabase, loginDatabase)
         vm = ViewModelProvider(this, DetailsViewModelFactory(rp)).get(DetailsViewModel::class.java)
-        adapter = LoginAdapter(requireContext(),list,this,this)
+        adapter = LoginAdapter(requireContext(),loginList,this,this)
         login_rcview.layoutManager = LinearLayoutManager(requireContext())
         login_rcview.adapter = adapter
         setupCategory()
 
         vm.allLogin().observe(viewLifecycleOwner) { l ->
              if(!l.isNullOrEmpty()){
-                 list.clear()
-                 list.addAll(l)
+                 loginList.clear()
+                 loginList.addAll(l)
                  adapter.notifyDataSetChanged()
              }
              else{
-                 list.clear()
+                 loginList.clear()
                  adapter.notifyDataSetChanged()
              }
         }
+        /*
         val itemTouchHelper=object : ItemTouchHelper.SimpleCallback(
             0,
             ItemTouchHelper.RIGHT
@@ -84,17 +87,25 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
 
             @SuppressLint("NotifyDataSetChanged")
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+               var position:Int=-1
                 when(direction){
                     ItemTouchHelper.RIGHT->{
                         vm.deletelogin(adapter.getItemId(viewHolder.absoluteAdapterPosition))
+
                     }
                 }
 
+
             }
+
+
         }
+
         ItemTouchHelper(itemTouchHelper).apply {
             attachToRecyclerView(login_rcview)
         }
+        */
+
 
 
 
@@ -108,7 +119,7 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
 
     override fun OnItemClick(position: Int) {
 
-                val d = Dialog(list[position])
+                val d = Dialog(loginList[position])
                 d.show(requireActivity().supportFragmentManager, "dialog")
 
     }
@@ -124,7 +135,7 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
         builder.setTitle("Edit")
         builder.setMessage("Are are sure you want to Edit?")
         builder.setPositiveButton("Yes" ){ dialog: DialogInterface, i: Int ->
-            val action=LoginFragmentDirections.actionLoginFragmentToUpdateLogin(list[position])
+            val action=LoginFragmentDirections.actionLoginFragmentToUpdateLogin(loginList[position])
             findNavController().navigate(action)
             dialog.dismiss()
 
@@ -171,6 +182,9 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
                       adapter.update(it)
                }
         }
+    }
+    private fun PasswordCheck(position: Long){
+
     }
 
 

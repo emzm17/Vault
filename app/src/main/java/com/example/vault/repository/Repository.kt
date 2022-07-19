@@ -43,4 +43,6 @@ class Repository(private val cardDatabase: CardDatabase, private val loginDataba
         return cardDatabase.cardDao().getAllcardType(cardType)
     }
 
+
+
 }

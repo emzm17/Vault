@@ -1,7 +1,6 @@
 package com.example.vault.fragment
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,7 +11,6 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.vault.R
-import com.example.vault.activity.MainActivity
 import com.example.vault.database.CardDatabase
 import com.example.vault.database.LoginDatabase
 import com.example.vault.model.Login
@@ -46,6 +44,7 @@ class AddLoginFragment : Fragment() {
         setUPSpinner()
         cardDatabase = CardDatabase.getDatabase(requireContext())
         loginDatabase = LoginDatabase.getDatabase(requireContext())
+
         rp = Repository(cardDatabase, loginDatabase)
         vm = ViewModelProvider(this, DetailsViewModelFactory(rp)).get(DetailsViewModel::class.java)
         addLoginBtn.setOnClickListener {

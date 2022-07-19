@@ -14,7 +14,8 @@ import kotlinx.android.synthetic.main.login_list.view.*
 import java.util.*
 
 
-class CardAdapter(private val context: Context,private var data:List<Card>,private val clickListener:OnItemClickListener):RecyclerView.Adapter<CardAdapter.CardViewHolder>(){
+class CardAdapter(private val context: Context,private var data:List<Card>,private val clickListener:OnItemClickListener,private val
+menulistener:OnItemMenuListener):RecyclerView.Adapter<CardAdapter.CardViewHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
@@ -24,6 +25,9 @@ class CardAdapter(private val context: Context,private var data:List<Card>,priva
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
          holder.bind(data[position])
+         holder.itemView.edit_card.setOnClickListener {
+                menulistener.onMenuItem(position)
+         }
 
     }
 
@@ -57,6 +61,10 @@ class CardAdapter(private val context: Context,private var data:List<Card>,priva
  }
  interface OnItemClickListener{
      fun OnItemClicked(adapterPosition: Int)
+ }
+
+ interface OnItemMenuListener{
+     fun onMenuItem(position: Int)
  }
 
 

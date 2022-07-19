@@ -4,33 +4,27 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.AlertDialog.*
 import android.content.DialogInterface
-import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
-import android.util.Log
 import android.view.*
-import android.widget.EditText
+import android.widget.PopupMenu
+import android.widget.Toast
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.vault.R
 import com.example.vault.adapter.LoginAdapter
 import com.example.vault.database.CardDatabase
 import com.example.vault.database.LoginDatabase
 import com.example.vault.model.Login
 import com.example.vault.repository.Repository
-import com.example.vault.utils.Constants.Companion.Masterpassword
 import com.example.vault.viewmodel.DetailsViewModel
 import com.example.vault.viewmodel.DetailsViewModelFactory
 import com.example.vault.utils.Dialog
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_login.view.*
 import kotlinx.android.synthetic.main.password_dialog.*
-import java.util.zip.Inflater
 
 class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter.OnItemEditClickListener{
     private lateinit var vm: DetailsViewModel
@@ -58,8 +52,6 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
         adapter = LoginAdapter(requireContext(),loginList,this,this)
         login_rcview.layoutManager = LinearLayoutManager(requireContext())
         login_rcview.adapter = adapter
-        setupCategory()
-
         vm.allLogin().observe(viewLifecycleOwner) { l ->
              if(!l.isNullOrEmpty()){
                  loginList.clear()
@@ -71,41 +63,7 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
                  adapter.notifyDataSetChanged()
              }
         }
-        /*
-        val itemTouchHelper=object : ItemTouchHelper.SimpleCallback(
-            0,
-            ItemTouchHelper.RIGHT
-        )
-           {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
-
-            @SuppressLint("NotifyDataSetChanged")
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-               var position:Int=-1
-                when(direction){
-                    ItemTouchHelper.RIGHT->{
-                        vm.deletelogin(adapter.getItemId(viewHolder.absoluteAdapterPosition))
-
-                    }
-                }
-
-
-            }
-
-
-        }
-
-        ItemTouchHelper(itemTouchHelper).apply {
-            attachToRecyclerView(login_rcview)
-        }
-        */
-
+        setupCategory()
 
 
 
@@ -118,15 +76,12 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
     }
 
     override fun OnItemClick(position: Int) {
-
                 val d = Dialog(loginList[position])
                 d.show(requireActivity().supportFragmentManager, "dialog")
-
     }
 
     override fun OnEditItemClick(position: Int) {
-        alertdialog(position)
-
+          performOptionsMenu(position)
     }
 
 
@@ -183,10 +138,49 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
                }
         }
     }
-    private fun PasswordCheck(position: Long){
 
+   private fun performOptionsMenu(position: Int){
+       val menu=PopupMenu(requireContext(),login_rcview[position].findViewById(R.id.edit_login))
+       menu.inflate(R.menu.item_click)
+       menu.setOnMenuItemClickListener { p0 ->
+           when (p0?.itemId) {
+               R.id.delete -> {
+                   passwordCheck(position)
+                   //vm.deletelogin(adapter.getItemId(position))
+               }
+               R.id.edit -> {
+                   alertdialog(position)
+               }
+               R.id.archive->{
+
+               }
+           }
+           false
+       }
+       menu.show()
+   }
+    private fun passwordCheck(position: Int){
+        val view=LayoutInflater.from(requireContext()).inflate(R.layout.password_dialog,null,false)
+        val builder=AlertDialog.Builder(requireContext())
+        with(builder){
+            setTitle("Enter your Pin")
+            setPositiveButton("Ok"){dialog,which->
+                     if(pin_text.text.toString()=="1234"){
+                         Toast.makeText(requireContext(),"Right Pin",Toast.LENGTH_LONG).show()
+                     }
+                     else{
+                         pin_text.requestFocus()
+                         pin_text.error="Incorrect"
+                     }
+            }
+            setCancelable(false)
+            setNegativeButton("Cancel"){dialog,which->
+                 dialog.dismiss()
+            }
+            setView(view)
+            show()
+        }
     }
-
 
 
 }

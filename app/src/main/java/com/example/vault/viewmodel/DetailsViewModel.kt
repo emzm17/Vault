@@ -1,15 +1,12 @@
 package com.example.vault.viewmodel
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.vault.model.Card
 import com.example.vault.model.Login
 import com.example.vault.repository.Repository
-import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class DetailsViewModel(private val repository: Repository): ViewModel() {
@@ -54,4 +51,6 @@ class DetailsViewModel(private val repository: Repository): ViewModel() {
     fun type(cardtype:String):LiveData<List<Card>>{
         return repository.getType(cardtype)
     }
+
+
 }

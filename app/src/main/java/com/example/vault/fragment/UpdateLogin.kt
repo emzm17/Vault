@@ -53,6 +53,7 @@ class UpdateLogin : Fragment() {
         setUPSpinner()
         cardDatabase = CardDatabase.getDatabase(requireContext())
         loginDatabase = LoginDatabase.getDatabase(requireContext())
+
         rp = Repository(cardDatabase, loginDatabase)
         vm = ViewModelProvider(this, DetailsViewModelFactory(rp)).get(DetailsViewModel::class.java)
         updateBtn.setOnClickListener {

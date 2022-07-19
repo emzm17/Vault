@@ -70,7 +70,6 @@ class LoginAdapter(private val context: Context, private var data:List<Login>,pr
             if (adapterPosition != RecyclerView.NO_POSITION) {
                 listener.OnItemClick(adapterPosition)
             }
-
         }
 
 

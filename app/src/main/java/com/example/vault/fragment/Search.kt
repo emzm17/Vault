@@ -26,6 +26,7 @@ class Search : Fragment(),SearchAdapter.OnItemClickListener,SearchAdapter.OnEdit
     private lateinit var rp: Repository
     private lateinit var cardDatabase: CardDatabase
     private lateinit var loginDatabase: LoginDatabase
+
     private lateinit var searchAdapter:SearchAdapter
     private  var searchList=arrayListOf<Login>()
     val temp= arrayListOf<Login>()
@@ -41,6 +42,7 @@ class Search : Fragment(),SearchAdapter.OnItemClickListener,SearchAdapter.OnEdit
         super.onViewCreated(view, savedInstanceState)
         cardDatabase = CardDatabase.getDatabase(requireContext())
         loginDatabase = LoginDatabase.getDatabase(requireContext())
+
         rp = Repository(cardDatabase, loginDatabase)
         vm = ViewModelProvider(this, DetailsViewModelFactory(rp)).get(DetailsViewModel::class.java)
         searchAdapter= SearchAdapter(requireContext(),searchList,this,this )

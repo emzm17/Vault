@@ -59,6 +59,9 @@
     <string name="cardcreds">CardCreds</string>
     <string name="logincreds">LoginCreds</string>
     <string name="enter_your_pin">Enter your Pin</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="do_you_want_to_change_the_passcode">Do you Want to Change the Passcode</string>
 
 
 </resources>

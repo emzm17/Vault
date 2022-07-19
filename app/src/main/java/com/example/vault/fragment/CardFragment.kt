@@ -1,16 +1,18 @@
 package com.example.vault.fragment
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.vault.R
 import com.example.vault.adapter.CardAdapter
 import com.example.vault.database.CardDatabase
@@ -18,19 +20,19 @@ import com.example.vault.database.LoginDatabase
 import com.example.vault.model.Card
 import com.example.vault.repository.Repository
 import com.example.vault.utils.CardDialog
-import com.example.vault.utils.Dialog
 import com.example.vault.viewmodel.DetailsViewModel
 import com.example.vault.viewmodel.DetailsViewModelFactory
 import kotlinx.android.synthetic.main.fragment_card.*
 import kotlinx.android.synthetic.main.fragment_login.*
 
 
-class CardFragment : Fragment(),CardAdapter.OnItemClickListener{
+class CardFragment : Fragment(),CardAdapter.OnItemClickListener,CardAdapter.OnItemMenuListener{
 
     private lateinit var vm: DetailsViewModel
     private lateinit var rp: Repository
     private lateinit var cardDatabase: CardDatabase
     private lateinit var loginDatabase: LoginDatabase
+
     private  var list= arrayListOf<Card>()
     private lateinit var  adapter:CardAdapter
     override fun onCreateView(
@@ -49,7 +51,7 @@ class CardFragment : Fragment(),CardAdapter.OnItemClickListener{
         rp = Repository(cardDatabase, loginDatabase)
         vm = ViewModelProvider(this, DetailsViewModelFactory(rp)).get(DetailsViewModel::class.java)
         list=ArrayList()
-        adapter= CardAdapter(requireContext(),list,this)
+        adapter= CardAdapter(requireContext(),list,this,this)
         card_rcview.layoutManager=LinearLayoutManager(requireContext())
         card_rcview.adapter=adapter
         setupType()
@@ -64,33 +66,6 @@ class CardFragment : Fragment(),CardAdapter.OnItemClickListener{
                 list.clear()
                 adapter.notifyDataSetChanged()
                 }
-        }
-        val itemTouchHelper=object : ItemTouchHelper.SimpleCallback(
-            0,
-            ItemTouchHelper.RIGHT
-        )
-        {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
-
-            @SuppressLint("NotifyDataSetChanged")
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val position=viewHolder.adapterPosition
-                when(direction){
-                    ItemTouchHelper.RIGHT->{
-                      vm.deletecard(adapter.getItemId(position))
-                    }
-                }
-
-            }
-        }
-        ItemTouchHelper(itemTouchHelper).apply {
-            attachToRecyclerView(card_rcview)
         }
         CardAdd.setOnClickListener {
           val action=CardFragmentDirections.actionCardFragmentToAddCardFragment()
@@ -141,7 +116,40 @@ class CardFragment : Fragment(),CardAdapter.OnItemClickListener{
 
 
     }
+    override fun onMenuItem(position: Int) {
+        performOptionsMenu(position)
+    }
 
+    private fun performOptionsMenu(position: Int){
+        val menu= PopupMenu(requireContext(),card_rcview[position].findViewById(R.id.edit_card))
+        menu.inflate(R.menu.item_click)
+        menu.setOnMenuItemClickListener { p0 ->
+            when (p0?.itemId) {
+                R.id.delete -> {
+                    vm.deletecard(adapter.getItemId(position))
+                }
+                R.id.edit -> {
+
+                }
+            }
+            false
+        }
+        menu.show()
+    }
+    private fun alertdialog(position: Int){
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Edit")
+        builder.setMessage("Are are sure you want to Edit?")
+        builder.setPositiveButton("Yes" ){ dialog: DialogInterface, i: Int ->
+
+        }
+        builder.setNegativeButton("No"){ dialog: DialogInterface, i:Int->
+            dialog.dismiss()
+        }
+        val alertDialog=builder.create()
+        alertDialog.setCancelable(false)
+        alertDialog.show()
+    }
 
 }
 

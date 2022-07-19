@@ -17,7 +17,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.login_dialog.*
 
 
-class Dialog(private var login: Login) : BottomSheetDialogFragment() {
+class LoginDialog(private var login: Login) : BottomSheetDialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

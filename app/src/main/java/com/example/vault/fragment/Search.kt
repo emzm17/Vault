@@ -1,5 +1,6 @@
 package com.example.vault.fragment
 
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,7 +15,7 @@ import com.example.vault.database.CardDatabase
 import com.example.vault.database.LoginDatabase
 import com.example.vault.model.Login
 import com.example.vault.repository.Repository
-import com.example.vault.utils.Dialog
+import com.example.vault.utils.LoginDialog
 import com.example.vault.viewmodel.DetailsViewModel
 import com.example.vault.viewmodel.DetailsViewModelFactory
 import kotlinx.android.synthetic.main.fragment_search.*
@@ -76,7 +77,7 @@ class Search : Fragment(),SearchAdapter.OnItemClickListener,SearchAdapter.OnEdit
     }
 
     override fun onItemClick(position: Int) {
-        val d= Dialog(searchList[position])
+        val d= LoginDialog(searchList[position])
         d.show(requireActivity().supportFragmentManager,"dialog")
     }
 

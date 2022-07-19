@@ -211,6 +211,7 @@
                     android:text="@string/_0"
                     android:textSize="26sp"
                     android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/numberDelete"
                     android:layout_width="wrap_content"

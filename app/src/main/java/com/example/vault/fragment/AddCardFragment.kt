@@ -164,7 +164,7 @@ class AddCardFragment : Fragment() {
     }
     private fun initSpinner() {
         val adapter = ArrayAdapter<String>(requireContext(), R.layout.support_simple_spinner_dropdown_item, cardList)
-        cardList.sort()
+        cardList.random()
         cardSpinner.adapter = adapter
 
     }

@@ -55,7 +55,7 @@ class AddLoginFragment : Fragment() {
                 )
             ) {
                 SaveLoginCredentials()
-                Toast.makeText(requireContext(), "lOGIN DATA SAVED", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "ITEM DATA SAVED", Toast.LENGTH_LONG).show()
                 val action=AddLoginFragmentDirections.actionAddLoginFragmentToLoginFragment2()
                 findNavController().navigate(action)
             } else {
@@ -87,7 +87,7 @@ class AddLoginFragment : Fragment() {
 
     private fun setUPSpinner() {
         val adapter = ArrayAdapter<String>(requireContext(), R.layout.support_simple_spinner_dropdown_item, categorylist)
-        categorylist.sort()
+        categorylist.random()
         add_login_spinner.adapter = adapter
     }
 

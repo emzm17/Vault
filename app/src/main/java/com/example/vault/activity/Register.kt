@@ -15,6 +15,7 @@ import com.example.vault.R
 import com.example.vault.model.Login
 import com.example.vault.utils.Constants.Companion.Masterpassword
 import com.example.vault.utils.Constants.Companion.pin
+import com.example.vault.utils.SharedPref
 import kotlinx.android.synthetic.main.activity_lock.*
 import kotlinx.android.synthetic.main.activity_register.*
 
@@ -26,11 +27,10 @@ class Register : AppCompatActivity(),View.OnClickListener {
     private lateinit var pref:SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pref=getSharedPreferences("password", Context.MODE_PRIVATE)
         setContentView(R.layout.activity_register)
-        if(pref.contains(pin)){
+        if(SharedPref(this).isThere("PIN")){
             val i=Intent(this,LockActivity::class.java)
-            i.putExtra(pin,pref.getString(pin,"xyz"))
+            i.putExtra(pin,SharedPref(this).getString("PIN"))
             startActivity(i)
             finish()
 
@@ -72,10 +72,7 @@ class Register : AppCompatActivity(),View.OnClickListener {
                          else if(count==4 && onConfirmation){
                              rpasswordFourth.setImageResource(R.drawable.password_entered)
                              if(masterpassword==tempmasterpassword){
-                                 Masterpassword=masterpassword
-                                 val editor=pref.edit()
-                                 editor.putString("PIN",masterpassword)
-                                 editor.commit()
+                                 SharedPref(this).setString("PIN",masterpassword)
                                 }
                                else{
                                    demoText.text="Wrong Pin"
@@ -110,10 +107,7 @@ class Register : AppCompatActivity(),View.OnClickListener {
                else if(count==4 && onConfirmation){
                    rpasswordFourth.setImageResource(R.drawable.password_entered)
                    if(masterpassword==tempmasterpassword){
-                       Masterpassword=masterpassword
-                       val editor=pref.edit()
-                       editor.putString("PIN",masterpassword)
-                       editor.commit()
+                       SharedPref(this).setString("PIN",masterpassword)
                    }
                    else{
                        demoText.text="Wrong Pin"
@@ -147,10 +141,7 @@ class Register : AppCompatActivity(),View.OnClickListener {
                else if(count==4 && onConfirmation){
                    rpasswordFourth.setImageResource(R.drawable.password_entered)
                    if(masterpassword==tempmasterpassword){
-                       Masterpassword=masterpassword
-                       val editor=pref.edit()
-                       editor.putString("PIN",masterpassword)
-                       editor.commit()
+                       SharedPref(this).setString("PIN",masterpassword)
                    }
                    else{
                        demoText.text="Wrong Pin"
@@ -184,10 +175,7 @@ class Register : AppCompatActivity(),View.OnClickListener {
                else if(count==4 && onConfirmation){
                    rpasswordFourth.setImageResource(R.drawable.password_entered)
                    if(masterpassword==tempmasterpassword){
-                       Masterpassword=masterpassword
-                       val editor=pref.edit()
-                       editor.putString("PIN",masterpassword)
-                       editor.commit()
+                       SharedPref(this).setString("PIN",masterpassword)
                    }
                    else{
                        demoText.text="Wrong Pin"
@@ -221,10 +209,7 @@ class Register : AppCompatActivity(),View.OnClickListener {
                else if(count==4 && onConfirmation){
                    rpasswordFourth.setImageResource(R.drawable.password_entered)
                    if(masterpassword==tempmasterpassword){
-                       Masterpassword=masterpassword
-                       val editor=pref.edit()
-                       editor.putString("PIN",masterpassword)
-                       editor.commit()
+                       SharedPref(this).setString("PIN",masterpassword)
                    }
                    else{
                        demoText.text="Wrong Pin"
@@ -258,10 +243,7 @@ class Register : AppCompatActivity(),View.OnClickListener {
                else if(count==4 && onConfirmation){
                    rpasswordFourth.setImageResource(R.drawable.password_entered)
                    if(masterpassword==tempmasterpassword){
-                       Masterpassword=masterpassword
-                       val editor=pref.edit()
-                       editor.putString("PIN",masterpassword)
-                       editor.commit()
+                       SharedPref(this).setString("PIN",masterpassword)
                    }
                    else{
                        demoText.text="Wrong Pin"
@@ -295,10 +277,7 @@ class Register : AppCompatActivity(),View.OnClickListener {
                else if(count==4 && onConfirmation){
                    rpasswordFourth.setImageResource(R.drawable.password_entered)
                    if(masterpassword==tempmasterpassword){
-                       Masterpassword=masterpassword
-                       val editor=pref.edit()
-                       editor.putString("PIN",masterpassword)
-                       editor.commit()
+                       SharedPref(this).setString("PIN",masterpassword)
                    }
                    else{
                        demoText.text="Wrong Pin"
@@ -332,10 +311,7 @@ class Register : AppCompatActivity(),View.OnClickListener {
                else if(count==4 && onConfirmation){
                    rpasswordFourth.setImageResource(R.drawable.password_entered)
                    if(masterpassword==tempmasterpassword){
-                       Masterpassword=masterpassword
-                       val editor=pref.edit()
-                       editor.putString("PIN",masterpassword)
-                       editor.commit()
+                       SharedPref(this).setString("PIN",masterpassword)
                    }
                    else{
                        demoText.text="Wrong Pin"
@@ -369,10 +345,7 @@ class Register : AppCompatActivity(),View.OnClickListener {
                else if(count==4 && onConfirmation){
                    rpasswordFourth.setImageResource(R.drawable.password_entered)
                    if(masterpassword==tempmasterpassword){
-                       Masterpassword=masterpassword
-                       val editor=pref.edit()
-                       editor.putString("PIN",masterpassword)
-                       editor.commit()
+                       SharedPref(this).setString("PIN",masterpassword)
                    }
                    else{
                        demoText.text="Wrong Pin"
@@ -406,10 +379,7 @@ class Register : AppCompatActivity(),View.OnClickListener {
                else if(count==4 && onConfirmation){
                    rpasswordFourth.setImageResource(R.drawable.password_entered)
                    if(masterpassword==tempmasterpassword){
-                       Masterpassword=masterpassword
-                       val editor=pref.edit()
-                       editor.putString("PIN",masterpassword)
-                       editor.commit()
+                       SharedPref(this).setString("PIN",masterpassword)
                    }
                    else{
                        demoText.text="Wrong Pin"

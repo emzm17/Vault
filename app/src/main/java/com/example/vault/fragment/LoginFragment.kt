@@ -2,12 +2,11 @@ package com.example.vault.fragment
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+
 import android.app.AlertDialog.*
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.*
-import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -21,10 +20,13 @@ import com.example.vault.model.Login
 import com.example.vault.repository.Repository
 import com.example.vault.viewmodel.DetailsViewModel
 import com.example.vault.viewmodel.DetailsViewModelFactory
-import com.example.vault.utils.Dialog
 import kotlinx.android.synthetic.main.fragment_login.*
-import kotlinx.android.synthetic.main.fragment_login.view.*
+import android.app.Dialog
+import android.widget.*
+import com.example.vault.utils.LoginDialog
+import com.example.vault.utils.SharedPref
 import kotlinx.android.synthetic.main.password_dialog.*
+
 
 class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter.OnItemEditClickListener{
     private lateinit var vm: DetailsViewModel
@@ -43,8 +45,6 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
     }
     @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        mpassword=""
-
         cardDatabase = CardDatabase.getDatabase(requireContext())
         loginDatabase = LoginDatabase.getDatabase(requireContext())
         rp = Repository(cardDatabase, loginDatabase)
@@ -76,7 +76,7 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
     }
 
     override fun OnItemClick(position: Int) {
-                val d = Dialog(loginList[position])
+                val d = LoginDialog(loginList[position])
                 d.show(requireActivity().supportFragmentManager, "dialog")
     }
 
@@ -90,9 +90,7 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
         builder.setTitle("Edit")
         builder.setMessage("Are are sure you want to Edit?")
         builder.setPositiveButton("Yes" ){ dialog: DialogInterface, i: Int ->
-            val action=LoginFragmentDirections.actionLoginFragmentToUpdateLogin(loginList[position])
-            findNavController().navigate(action)
-            dialog.dismiss()
+
 
         }
         builder.setNegativeButton("No"){ dialog:DialogInterface,i:Int->
@@ -145,11 +143,10 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
        menu.setOnMenuItemClickListener { p0 ->
            when (p0?.itemId) {
                R.id.delete -> {
-                   passwordCheck(position)
-                   //vm.deletelogin(adapter.getItemId(position))
+                   passwordCheck(position,"delete")
                }
                R.id.edit -> {
-                   alertdialog(position)
+                   passwordCheck(position,"edit")
                }
                R.id.archive->{
 
@@ -159,27 +156,41 @@ class LoginFragment : Fragment(), LoginAdapter.OnItemClickListener ,LoginAdapter
        }
        menu.show()
    }
-    private fun passwordCheck(position: Int){
-        val view=LayoutInflater.from(requireContext()).inflate(R.layout.password_dialog,null,false)
-        val builder=AlertDialog.Builder(requireContext())
-        with(builder){
-            setTitle("Enter your Pin")
-            setPositiveButton("Ok"){dialog,which->
-                     if(pin_text.text.toString()=="1234"){
-                         Toast.makeText(requireContext(),"Right Pin",Toast.LENGTH_LONG).show()
-                     }
-                     else{
-                         pin_text.requestFocus()
-                         pin_text.error="Incorrect"
-                     }
-            }
-            setCancelable(false)
-            setNegativeButton("Cancel"){dialog,which->
-                 dialog.dismiss()
-            }
-            setView(view)
-            show()
+    private fun passwordCheck(position: Int,s:String){
+        val customDialog = Dialog(requireContext())
+        customDialog.setContentView(R.layout.password_dialog)
+        customDialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        val yes=customDialog.findViewById<Button>(R.id.btn_proceed)
+        val no=customDialog.findViewById<Button>(R.id.btn_cancel)
+        val p=customDialog.findViewById<EditText>(R.id.pin_text).text
+        val temp=SharedPref(requireContext()).getString("PIN").toString()
+        yes.setOnClickListener {
+              if(p.toString()==temp){
+                   if(s=="delete"){
+                       vm.deletelogin(adapter.getItemId(position))
+                       Toast.makeText(requireContext(),"Successfully deleted item",Toast.LENGTH_SHORT).show()
+                   }
+                   else{
+                       val action=LoginFragmentDirections.actionLoginFragmentToUpdateLogin(loginList[position])
+                       findNavController().navigate(action)
+                       customDialog.dismiss()
+                   }
+
+              }
+              else{
+                  Toast.makeText(requireContext(), "Wrong Password",Toast.LENGTH_LONG).show()
+              }
+            customDialog.dismiss()
         }
+        no.setOnClickListener {
+             customDialog.dismiss()
+        }
+        customDialog.show()
+
+
     }
 
 

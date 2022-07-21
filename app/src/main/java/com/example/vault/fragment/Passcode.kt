@@ -9,14 +9,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.vault.R
 import com.example.vault.utils.Constants.Companion.Masterpassword
 import com.example.vault.utils.Constants.Companion.pin
+import com.example.vault.utils.SharedPref
 import kotlinx.android.synthetic.main.fragment_passcode.*
 
 
 class Passcode : Fragment() {
-    private lateinit var pref:SharedPreferences
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,18 +28,17 @@ class Passcode : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        pref = requireActivity().getSharedPreferences("password", Context.MODE_PRIVATE)
 
-        if (pref.contains(pin)) {
-            val mpassword= Masterpassword
+
             changepin.setOnClickListener {
-                Log.i("SharedPreferences", mpassword)
-                if (oldpin.text.toString() == mpassword) {
+                if (oldpin.text.toString() == SharedPref(requireContext()).getString("PIN")) {
                     if (confirmpin.text.toString() == newpin.text.toString()) {
-                        val editor = pref.edit()
-                        editor.putString("PIN", confirmpin.text.toString())
-                        editor.commit()
-                        Masterpassword=confirmpin.toString()
+                       SharedPref(requireContext()).setString("PIN",newpin.text.toString())
+                        val action=PasscodeDirections.actionPasscodeToLoginFragment()
+                        findNavController().navigate(action)
+                    }
+                    else {
+                        Toast.makeText(requireContext(), "Pin don't match", Toast.LENGTH_LONG).show()
                     }
                 } else {
                     Toast.makeText(requireContext(), "Wrong Pin", Toast.LENGTH_LONG).show()
@@ -45,6 +46,6 @@ class Passcode : Fragment() {
             }
 
         }
-    }
+
 
 }

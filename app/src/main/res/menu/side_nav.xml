@@ -14,13 +14,9 @@
     </item>
     </group>
 
-    <item
-        android:id="@+id/archive"
-        android:icon="@drawable/baseline_archive_black_24dp"
-        android:title="Archive" />
 
-    <item android:id="@+id/settings"
-    android:title="@string/settings"
+    <item android:id="@+id/passcode"
+    android:title="@string/passcode"
     android:icon="@drawable/ic_baseline_settings_24">
 </item>
 <item android:id="@+id/passwordGenerator"

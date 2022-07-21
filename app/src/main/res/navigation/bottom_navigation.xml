@@ -50,10 +50,16 @@
         tools:layout="@layout/fragment_passcode"
         android:label="PasswordGenerator" />
     <fragment
-        android:id="@+id/settings"
+        android:id="@+id/passcode"
         android:name="com.example.vault.fragment.Passcode"
         android:label="Settings"
-        tools:layout="@layout/fragment_passcode" />
+        tools:layout="@layout/fragment_passcode" >
+        <action
+            app:popUpTo="@id/loginFragment"
+            android:id="@+id/action_passcode_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/updateLogin"
         tools:layout="@layout/fragment_update_login"
@@ -63,6 +69,7 @@
             android:name="currentItem"
             app:argType="com.example.vault.model.Login" />
         <action
+            app:popUpTo="@id/loginFragment"
             android:id="@+id/action_updateLogin_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
@@ -84,10 +91,6 @@
             android:id="@+id/action_searchfragment_to_updateLogin"
             app:destination="@id/updateLogin" />
     </fragment>
-    <fragment
-        android:id="@+id/archive"
-        android:name="com.example.vault.fragment.Archive"
-        android:label="fragment_archive"
-        tools:layout="@layout/fragment_archive" />
+
 
 </navigation>

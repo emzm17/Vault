@@ -18,9 +18,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         getWindow().setFlags(
             WindowManager.LayoutParams.FLAG_SECURE,
             WindowManager.LayoutParams.FLAG_SECURE)
+
+
         setContentView(R.layout.activity_main)
         appBarConfiguration= AppBarConfiguration(setOf(R.id.loginFragment,R.id.cardFragment),draw_layout)
         setSupportActionBar(toolbar)

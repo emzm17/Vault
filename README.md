@@ -22,7 +22,6 @@ Android App where you can store all Login details,card details in one place.App 
 -  [Room](https://developer.android.com/jetpack/androidx/releases/room?gclsrc=ds&gclsrc=ds)
 -  [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
 -  [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?gclsrc=ds&gclsrc=ds)
--  [Navigation Components](https://developer.android.com/guide/navigation/navigation-getting-started)
 -  [Coroutines](https://developer.android.com/kotlin/coroutines)
 -  [Navigation Component](https://developer.android.com/guide/navigation/navigation-getting-started)
 
